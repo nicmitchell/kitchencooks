@@ -1,9 +1,10 @@
 {
-  "name": "app",
-  "version": "0.0.0",
-  "private": true,
+  "name": "kitchencooks",
+  "version": "1.0.0",
+  "description": "Chat app for hack reactor remote student",
+  "main": "app.js",
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node app.js"
   },
   "dependencies": {
     "body-parser": "~1.8.1",
@@ -30,5 +31,12 @@
     "grunt-contrib-jshint": "~0.10.0",
     "grunt-contrib-uglify": "~0.6.0",
     "grunt-contrib-watch": "~0.6.1"
-  }
+  },
+  "keywords": [
+    "chat",
+    "video",
+    "conference",
+    "webRTC"
+  ],
+  "homepage": "https://github.com/Green-Snake-Platinum-Kangaroo/kitchencooks"
 }

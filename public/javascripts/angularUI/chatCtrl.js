@@ -1,6 +1,4 @@
-
-var fbChats = new Firebase('https://hrr-kitchen.firebaseio.com/chats')
-
+var fbChats = new Firebase('https://hrr-kitchen.firebaseio.com/chats');
 
 var appControllers = angular.module('appControllers');
 
@@ -20,7 +18,6 @@ appControllers.controller('chatCtrl', ['$scope', '$cookies',
   $('#messageInput').keypress(function (e) {
     if (e.keyCode == 13) {
       var text = $('#messageInput').val();
-      console.log(user.name)
       fbChats.push({name: user.name, text: text});
       $('#messageInput').val('');
     }
@@ -36,8 +33,7 @@ appControllers.controller('chatCtrl', ['$scope', '$cookies',
   function displayChatMessage(name, text) {
     $('<div/>').text(text).prepend($('<strong/>').text(name+': ')).appendTo($('.chat'));
     $('.chat')[0].scrollTop = $('.chat')[0].scrollHeight;
-  };
-
+  }
 
   }]
 

@@ -15,8 +15,6 @@ function getIdOfBox(boxNum) {
     return "box" + boxNum;
 }
 
-
-
 //join the thumb videos and view others
 function callEverybodyElse(roomName, otherPeople) {
 
@@ -96,8 +94,6 @@ function joinThumbVideos(table) {
 //  Currently unfinished functions (mostly a copy of joinThumbVideos)
 //  When complete it should show video thumbs without adding the user to the thumbs
 function viewThumbVideos (table) {
-
-    console.log('table clicked')
 
     maxCALLERS ++;
     numVideoOBJS = maxCALLERS+1;

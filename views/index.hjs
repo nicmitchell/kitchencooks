@@ -5,9 +5,8 @@
     <title>{{ title }}</title>
 
     <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-    <link rel='stylesheet' href='/stylesheets/chat-bar.css' />
-    <link rel='stylesheet' href='/stylesheets/videoFaces.css' />
+    <link rel='stylesheet' href='/css/styles.css' />
+
 
     <script src="/bower_components/firebase/firebase.js"></script>
     <script src="/bower_components/jquery/dist/jquery.min.js"></script>

@@ -1,4 +1,4 @@
-#nameInput {
+/*#nameInput {
   font-weight: bold;
 }
 
@@ -10,17 +10,17 @@
   /*position: relative;*/
 
   /*margin-left:750px;*/
-  /*margin-top:700px;*/
+/*  margin-top:700px;
   font-size: 0.7em;
   padding:2px;
   width:800px;
   height:600px;
   border:solid 1px black;
   overflow-y:scroll;
-  display: block;
+  display: block;*/
   /*float:left;*/
-}
-
+/*}
+*/
 /*body {
   border: solid 1px black;
 }*/

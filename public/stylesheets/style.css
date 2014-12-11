@@ -6,13 +6,13 @@ body {
   margin-bottom: 19px;
 }
 
-a {
+/*a {
   color: #00B7FF;
-}
+}*/
 
-.spacer {
-    margin: 20px; /* define margin as you see fit */
-}
+/*.spacer {
+    margin: 20px;  define margin as you see fit
+}*/
 
 /*
 .bootbox {

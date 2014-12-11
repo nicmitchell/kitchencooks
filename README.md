@@ -4,9 +4,10 @@
 
 ## Team
 
-  - __Product Owner__: Julie Knowles
-  - __Scrum Master__: Pat Lauer
-  - __Development Team Members__: Julie Knowles, Pat Lauer, Rory Campbell
+<!--   - __Product Owner__: Julie Knowles
+  - __Scrum Master__: Pat Lauer -->
+  - __Development Team Members__:[Victor Leung](https://github.com/victorleungtw), [Patrick McPike](https://github.com/mcpike), [Nic Mitchell](https://github.com/nicmitchell), [Rory Campbell](https://github.com/roryc89), [Julie Knowles](https://github.com/JulieMarie), [Pat Lauer](https://github.com/plauer) 
+
 
 ## Table of Contents
 

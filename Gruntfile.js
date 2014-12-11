@@ -11,12 +11,24 @@ module.exports = function(grunt){
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     concat: {
-
+      js: {
+        src: ['dev/js/logic/*js', 'dev/js/angularUI/*js'],
+        dest: 'dev/temp/app.js'
+      },
+      css: {
+        src: ['dev/css/*.css'],
+        dest: 'public/css/styles.css'
+      }
     },
     jshint:{
 
     },
     uglify:{
+      scripts: {
+        files: {
+          'public/js/app.min.js': ['dev/temp/app.js']
+        }
+      }
 
     },
     watch:{
@@ -24,9 +36,7 @@ module.exports = function(grunt){
     }
   });
 
-  grunt.registerTask('default', function(){
-    console.log("Grunt is installed...")
-  });
+  grunt.registerTask('default', ['concat:js', 'uglify:scripts', 'concat:css']);
 
 };
 

@@ -1,0 +1,87 @@
+/* from style.css */
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.spacer {
+    margin: 20px; /* define margin as you see fit */
+}
+
+/* from the chat-bar.css */
+#nameInput {
+  font-weight: bold;
+}
+
+.chat {
+  padding-top:2px;
+}
+
+.chat-div {
+  /*position: relative;*/
+
+  /*margin-left:750px;*/
+  /*margin-top:700px;*/
+  font-size: 0.7em;
+  padding:2px;
+  width:800px;
+  height:600px;
+  border:solid 1px black;
+  overflow-y:scroll;
+  display: block;
+  /*float:left;*/
+}
+
+/* videoFaces.css */
+
+.hidden {
+    background-color: transparent;
+    border-color: 2px solid blue;
+}
+
+/*.boxCommon {
+    position:absolute;
+}*/
+
+.closeButton {
+    display: none;  /*hide the easyApp's close button because we have our own*/
+}
+
+/*.thumbCommon {
+    z-index:2;
+    box-shadow: 5px 5px 5px #000000;
+}*/
+
+#controlArea {
+    background-color: #ff8000;
+}
+
+body {
+    background-color:#ffd0d0;
+    margin-left:0px;
+    margin-top:0px;
+}
+
+/*#killButton {
+    opacity:0.7;
+}
+
+#killButton:hover {
+    opacity:1.0;
+}
+*/
+
+/*
+.bootbox {
+position: fixed;
+bottom: 25%;
+right: 0;
+margin-bottom: 0;
+font-size: 1.2em;
+padding: 1em 1.3em;
+z-index: 2000;
+}*/

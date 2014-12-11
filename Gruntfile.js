@@ -14,6 +14,10 @@ module.exports = function(grunt){
       js: {
         src: ['dev/js/logic/*js', 'dev/js/angularUI/*js'],
         dest: 'dev/temp/app.js'
+      },
+      css: {
+        src: ['dev/css/*.css'],
+        dest: 'public/css/styles.css'
       }
     },
     jshint:{
@@ -32,7 +36,7 @@ module.exports = function(grunt){
     }
   });
 
-  grunt.registerTask('default', ['concat:js', 'uglify:scripts']);
+  grunt.registerTask('default', ['concat:js', 'uglify:scripts', 'concat:css']);
 
 };
 

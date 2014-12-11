@@ -31,8 +31,11 @@ module.exports = function(grunt){
       }
 
     },
-    watch:{
-
+    watch: {
+      dev: {
+        files: ['dev/js/*.js', 'dev/css/*.css'],
+        tasks: ['default'],
+      },
     }
   });
 

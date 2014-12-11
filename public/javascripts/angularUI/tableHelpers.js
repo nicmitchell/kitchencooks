@@ -1,5 +1,3 @@
-'use strict'
-
 //This function decides the outcome when a user "sits down"
 var startOrJoinVideo = function(seat, $scope){
 
@@ -26,14 +24,12 @@ var startOrJoinVideo = function(seat, $scope){
 
     //call function to start video and store link to it here
     //should probably be changed so that it is called when "OK" is clicked on the bootbox modal
-    console.log('about to open video')
     window.open('https://appear.in/hrr-kitchen-'+ seat.tableNumber);
 
     //updates the firebase
     fbHangouts.set($scope.hangouts);
 
   }else{
-    console.log('about to open video')
 
     window.open('https://appear.in/hrr-kitchen-'+ seat.tableNumber);
 
@@ -43,12 +39,9 @@ var startOrJoinVideo = function(seat, $scope){
 
     //updates model and view with the new seating arrangment
     $scope.$apply(function(){
-      console.log('SEAT', seat, table);
       $scope.currentURL = table.url;
       $scope.currentSeat = seat.tableNumber + ' - ' + seat.seatNumber;
     });
-
-
 
     fbHangouts.set($scope.hangouts);
 
@@ -60,8 +53,6 @@ var startOrJoinVideo = function(seat, $scope){
 var handleClick = function(seat, $event, $scope) {
 
   $event.preventDefault();
-
-  console.log('SEAT', seat);
 
   if (!$scope.satDown){
 
@@ -76,7 +67,7 @@ var handleClick = function(seat, $event, $scope) {
       fbSeating.set($scope.seats);
 
       //calls above function
-      startOrJoinVideo(seat, $scope)
+      startOrJoinVideo(seat, $scope);
 
     }else{
 
@@ -104,7 +95,7 @@ var handleClick = function(seat, $event, $scope) {
 
       table.users--;
 
-      $scope.currentSeat = 'Standing'
+      $scope.currentSeat = 'Standing';
 
     }else{
       //modal alert
@@ -112,16 +103,13 @@ var handleClick = function(seat, $event, $scope) {
       $(".modal-backdrop").css("z-index", "0");
 
     }
-
   }
-
 };
 
 // This function clears the seats of all users by setting the firebase database to all empty seats
 // It is called when the clear room button is clicked
 // It has been implemented to aid development but probably should not be included in the final product
 var clearRoom = function(){
-  console.log('clearing')
 
   var hangouts = {
     "table1" : {
@@ -144,7 +132,7 @@ var clearRoom = function(){
       "message": 0,
       "url": 0
     }
-  }
+  };
 
   var seating = {
     "table1" : {
@@ -255,11 +243,8 @@ var clearRoom = function(){
       },
       "tableNumber" : "table2"
     }
-  }
+  };
 
   fbHangouts.set(hangouts);
-
   fbSeating.set(seating);
-
-
-}
+};

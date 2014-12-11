@@ -1,7 +1,6 @@
-'use strict';
 window.userName = 'Loading';
 
-var fbHangouts = new Firebase('https://hrr-kitchen.firebaseio.com/hangouts')
+var fbHangouts = new Firebase('https://hrr-kitchen.firebaseio.com/hangouts');
 // if so then provide the user with the hangout url
 
 var appControllers = angular.module('appControllers', ['ngCookies']);
@@ -12,12 +11,11 @@ var appControllers = angular.module('appControllers', ['ngCookies']);
 appControllers.controller('kitchenCtrl', ['$scope', '$cookies',
   function ($scope, $cookies) {
 
-    var user  = {}
+    var user  = {};
     if ($cookies.user) {
-
-      window.userName = $cookies.user
+      window.userName = $cookies.user;
     } else {
-      window.userName = "Anonymous"
+      window.userName = "Anonymous";
     }
 
     $scope.satDown = false;
@@ -29,12 +27,9 @@ appControllers.controller('kitchenCtrl', ['$scope', '$cookies',
 
     //Updates the local seating data when the firebase updates
     fbSeating.on("value", function(snapshot) {
-
       $scope.$apply(function(){
         $scope.seats = snapshot.val();
-
       });
-
     });
 
 

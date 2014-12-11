@@ -11,24 +11,15 @@ var seating = fb.child("seating");
 
 var seatClick = function(seatInfo){
 
-
   var name = 'Rory';
   var table = seatInfo.table;
   var seat = seatInfo.seat;
 
-  console.log(seatInfo)
-
-  console.log(table, seat)
-
   var clickedSeat = seating.child(table).child(seat);
-
-  console.log(clickedSeat);
-
 
   clickedSeat.set({taken: true, name: name});
 
   //seating.set(seatInfo);
-
 };
 
 

@@ -230,7 +230,7 @@
      */
     easyrtc.buildLocalSdpFilter = function (options) {
         return buildSdpFilter(options, true);
-    }
+    };
 
     /**
      *  This function returns an sdp filter function.
@@ -239,7 +239,7 @@
      */
     easyrtc.buildRemoteSdpFilter = function(options) {
         return buildSdpFilter(options, false);
-    }
+    };
 })();
 
 

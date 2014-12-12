@@ -20,8 +20,8 @@
 
 
     <!-- easyrtc (below) installed in a hacky way -->
-    <script src="/libz/api/easyrtc.js"></script>
-    <script src="/libz/bootbox.js"></script>
+    <script src="js/rtctools.js"></script>
+
 
   </head>
   <body>

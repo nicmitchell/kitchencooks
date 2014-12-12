@@ -18,6 +18,10 @@ module.exports = function(grunt){
       css: {
         src: ['dev/css/*.css'],
         dest: 'public/css/styles.css'
+      },
+      easyrtc: {
+        src: ['dev/easyrtc/easyrtc.js', 'dev/tools/*.js'],
+        dest: 'public/js/rtctools.js'
       }
     },
     jshint:{
@@ -39,7 +43,7 @@ module.exports = function(grunt){
     }
   });
 
-  grunt.registerTask('default', ['concat:js', 'uglify:scripts', 'concat:css']);
+  grunt.registerTask('default', ['concat:js', 'uglify:scripts', 'concat:css', 'concat:easyrtc']);
 
 };
 

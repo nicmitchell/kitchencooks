@@ -5,7 +5,7 @@
 // if so then provide the user with the hangout url
 // $( document ).ready(function() {
 
-var fb = new Firebase('https://kitchen-cooks.firebaseio.com/');
+var fb = new Firebase('https://hrr-kitchen-legacy.firebaseio.com/');
 
 var seating = fb.child("seating");
 

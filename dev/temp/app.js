@@ -5,7 +5,7 @@
 // if so then provide the user with the hangout url
 // $( document ).ready(function() {
 
-var fb = new Firebase('https://kitchen-cooks.firebaseio.com/');
+var fb = new Firebase('https://hrr-kitchen-legacy.firebaseio.com/');
 
 var seating = fb.child("seating");
 
@@ -156,7 +156,7 @@ function viewThumbVideos (table) {
 }
 
 
-var fbChats = new Firebase('https://hrr-kitchen.firebaseio.com/chats');
+var fbChats = new Firebase('https://hrr-kitchen-legacy.firebaseio.com/chats');
 
 var appControllers = angular.module('appControllers');
 
@@ -200,7 +200,7 @@ appControllers.controller('chatCtrl', ['$scope', '$cookies',
 
 window.userName = 'Loading';
 
-var fbHangouts = new Firebase('https://hrr-kitchen.firebaseio.com/hangouts');
+var fbHangouts = new Firebase('https://hrr-kitchen-legacy.firebaseio.com/hangouts');
 // if so then provide the user with the hangout url
 
 var appControllers = angular.module('appControllers', ['ngCookies']);
@@ -255,7 +255,7 @@ appControllers.controller('kitchenCtrl', ['$scope', '$cookies',
 );
 
 
-var fbSeating = new Firebase('https://hrr-kitchen.firebaseio.com/seating');
+var fbSeating = new Firebase('https://hrr-kitchen-legacy.firebaseio.com/seating');
 
 /* App Module */
 

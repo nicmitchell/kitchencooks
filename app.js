@@ -19,6 +19,8 @@ var routes = require('./routes/index');
 
 var app = express();
 
+app.set('port', process.env.PORT || 3000);
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hjs');
@@ -92,7 +94,9 @@ app.use(function(req, res, next) {
     next(err);
 });
 
-var webServer = app.listen('3000');
+var webServer = app.listen(app.get('port'), function() {
+  console.log('Express server listening on port ' + webServer.address().port);
+});
 
 // Start Socket.io so it attaches itself to Express server
 var socketServer = io.listen(webServer, {"log level":1});
@@ -100,4 +104,5 @@ var socketServer = io.listen(webServer, {"log level":1});
 // Start EasyRTC server
 var rtc = easyrtc.listen(app, socketServer);
 
-module.exports = app;
+
+// module.exports = app;

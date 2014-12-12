@@ -1,46 +1,131 @@
-<!-- This view file shows the kitchen and thumbs videos to the user
-It was hastily hacked and needs refactoring to fix its currrent conditions. The non breaking white spaces are particularly tragic -->
+<!-- This view file shows the kitchen and thumbs videos to the user -->
+
+<div class="well">
+  <div class="row">
+    <div class="col-sm-4">
+      <table class="table text-center">
+        <thead>
+          <tr>
+            <th><span class="label label-primary" ng-click="viewThumbs('table1')">Table 1</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><button  type="button" ng-click="doClick(seats.table1.seat1, $event)" class="btn btn-default seat btn-block">seat 1<br> {%seats.table1.seat1.name|| 'loading'%}</button></td>
+            <td><button  type="button" ng-click="doClick(seats.table1.seat2, $event)" class="btn btn-default seat btn-block">seat 2<br> {%seats.table1.seat2.name|| 'loading'%}</button></td>
+          </tr>
+          <tr>
+            <td><button type="button" ng-click="doClick(seats.table1.seat3, $event)" class="btn btn-default seat btn-block">seat 3<br> {%seats.table1.seat3.name || 'loading'%}</button></td>
+            <td><button type="button" ng-click="doClick(seats.table1.seat4, $event)" class="btn btn-default seat btn-block">seat 4<br> {%seats.table1.seat4.name|| 'loading'%}</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-sm-4">
+      <table class="table">
+        <thead>
+          <tr>
+            <th><span class="label label-primary" ng-click="viewThumbs('table2')">Table 2</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><button type="button" ng-click="doClick(seats.table2.seat1, $event)" class="btn btn-default seat btn-block">seat 1<br> {%seats.table2.seat1.name|| 'loading'%}</button></td>
+            <td><button type="button" ng-click="doClick(seats.table2.seat2, $event)" class="btn btn-default seat btn-block">seat 2<br> {%seats.table2.seat2.name|| 'loading'%}</button></td>
+          </tr>
+          <tr>
+            <td><button type="button" ng-click="doClick(seats.table2.seat3, $event)" class="btn btn-default seat btn-block">seat 3<br> {%seats.table2.seat3.name|| 'loading'%}</button></td>
+            <td><button type="button" ng-click="doClick(seats.table2.seat4, $event)" class="btn btn-default seat btn-block">seat 4<br> {%seats.table2.seat4.name|| 'loading'%}</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-sm-4">
+      <table class="table">
+        <thead>
+          <tr>
+            <th><span class="label label-primary" ng-click="viewThumbs('table3')">Table 3</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><button type="button" ng-click="doClick(seats.table3.seat1, $event)" class="btn btn-default seat btn-block">seat 1<br> {%seats.table3.seat1.name|| 'loading'%}</button></td>
+            <td><button type="button" ng-click="doClick(seats.table3.seat2, $event)" class="btn btn-default seat btn-block">seat 2 <br> {%seats.table3.seat2.name|| 'loading'%}</button></td>
+          </tr>
+          <tr>
+            <td><button type="button" ng-click="doClick(seats.table3.seat3, $event)" class="btn btn-default seat btn-block">seat 3<br> {%seats.table3.seat3.name|| 'loading'%}</button></td>
+            <td><button type="button" ng-click="doClick(seats.table3.seat4, $event)" class="btn btn-default seat btn-block">seat 4<br> {%seats.table3.seat4.name|| 'loading'%}</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-4">
+      <table class="table">
+        <thead>
+          <tr>
+            <th><span class="label label-primary" ng-click="viewThumbs('table4')">Table 4</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><button  type="button" ng-click="doClick(seats.table4.seat1, $event)" class="btn btn-default seat btn-block">seat 1<br> {%seats.table4.seat1.name|| 'loading'%}</button></td>
+            <td><button  type="button" ng-click="doClick(seats.table4.seat2, $event)" class="btn btn-default seat btn-block">seat 2<br> {%seats.table4.seat2.name|| 'loading'%}</button></td>
+          </tr>
+          <tr>
+            <td><button type="button" ng-click="doClick(seats.table4.seat3, $event)" class="btn btn-default seat btn-block">seat 3<br> {%seats.table4.seat3.name|| 'loading'%}</button></td>
+            <td><button type="button" ng-click="doClick(seats.table4.seat4, $event)" class="btn btn-default seat btn-block">seat 4<br> {%seats.table4.seat4.name|| 'loading'%}</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-sm-4">
+      <table class="table">
+        <thead>
+          <tr>
+            <th><span class="label label-primary" ng-click="viewThumbs('table5')">Table 5</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><button  type="button" ng-click="doClick(seats.table5.seat1, $event)" class="btn btn-default seat btn-block">seat 1<br> {%seats.table5.seat1.name|| 'loading'%}</button></td>
+            <td><button  type="button" ng-click="doClick(seats.table5.seat2, $event)" class="btn btn-default seat btn-block">seat 2<br> {%seats.table5.seat2.name|| 'loading'%}</button></td>
+          </tr>
+          <tr>
+            <td><button type="button" ng-click="doClick(seats.table5.seat3, $event)" class="btn btn-default seat btn-block">seat 3<br> {%seats.table5.seat3.name|| 'loading'%}</button></td>
+            <td><button type="button" ng-click="doClick(seats.table5.seat4, $event)" class="btn btn-default seat btn-block">seat 4<br> {%seats.table5.seat4.name|| 'loading'%}</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-sm-4">
+      <table class="table">
+        <thead>
+          <tr>
+            <th><span class="label label-primary" ng-click="viewThumbs('table6')">Table 6</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><button  type="button" ng-click="doClick(seats.table6.seat1, $event)" class="btn btn-default seat btn-block">seat 1<br> {%seats.table6.seat1.name|| 'loading'%}</button></td>
+            <td><button  type="button" ng-click="doClick(seats.table6.seat2, $event)" class="btn btn-default seat btn-block">seat 2<br> {%seats.table6.seat2.name|| 'loading'%}</button></td>
+          </tr>
+          <tr>
+            <td><button type="button" ng-click="doClick(seats.table6.seat3, $event)" class="btn btn-default seat btn-block">seat 3<br> {%seats.table6.seat3.name|| 'loading'%}</button></td>
+            <td><button type="button" ng-click="doClick(seats.table6.seat4, $event)" class="btn btn-default seat btn-block">seat 4<br> {%seats.table6.seat4.name|| 'loading'%}</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
 <div>
 
   <div>
   <!-- Kitchen tables and seats view -->
     <div class="panel panel-default container col-md-6">
-      <div class="row">
-
-        <div class="btn-group spacer" role="group" aria-label="Table1">
-          <button  type="button" ng-click="doClick(seats.table1.seat1, $event)" class="btn btn-default seat"> &nbsp &nbsp  &nbsp &nbsp seat 1 &nbsp &nbsp  &nbsp &nbsp  <br> {%seats.table1.seat1.name|| 'loading'%}</button>
-          <button  type="button" ng-click="doClick(seats.table1.seat2, $event)" class="btn btn-default seat"> &nbsp &nbsp  &nbsp &nbsp seat 2 &nbsp &nbsp  &nbsp &nbsp  <br> {%seats.table1.seat2.name|| 'loading'%}</button>
-          <h1><span class="label label-info" ng-click="viewThumbs('table1')"> &nbsp &nbsp  &nbsp &nbsp   Table 1  &nbsp  &nbsp &nbsp  &nbsp &nbsp </span></h1>
-          <button type="button" ng-click="doClick(seats.table1.seat3, $event)" class="btn btn-default seat"> &nbsp &nbsp  &nbsp &nbsp seat 3  &nbsp &nbsp  &nbsp &nbsp <br> {%seats.table1.seat3.name || 'loading'%}</button>
-          <button type="button" ng-click="doClick(seats.table1.seat4, $event)" class="btn btn-default seat"> &nbsp &nbsp  &nbsp &nbsp seat 4  &nbsp &nbsp  &nbsp &nbsp <br> {%seats.table1.seat4.name|| 'loading'%}</button>
-        </div>
-
-        <div class="btn-group spacer" role="group" aria-label="Table2">
-          <button type="button" ng-click="doClick(seats.table2.seat1, $event)" class="btn btn-default seat"> &nbsp &nbsp  &nbsp &nbsp seat 1  &nbsp &nbsp  &nbsp &nbsp <br> {%seats.table2.seat1.name|| 'loading'%}</button>
-          <button type="button" ng-click="doClick(seats.table2.seat2, $event)" class="btn btn-default seat"> &nbsp &nbsp  &nbsp &nbsp seat 2  &nbsp &nbsp  &nbsp &nbsp <br> {%seats.table2.seat2.name|| 'loading'%}</button>
-          <h1><span class="label label-info" ng-click="viewThumbs('table2')"> &nbsp  &nbsp &nbsp  &nbsp Table 2 &nbsp &nbsp  &nbsp  &nbsp &nbsp </span></h1>
-          <button type="button" ng-click="doClick(seats.table2.seat3, $event)" class="btn btn-default seat"> &nbsp &nbsp  &nbsp &nbsp seat 3  &nbsp &nbsp  &nbsp &nbsp <br> {%seats.table2.seat3.name|| 'loading'%}</button>
-          <button type="button" ng-click="doClick(seats.table2.seat4, $event)" class="btn btn-default seat"> &nbsp &nbsp  &nbsp &nbsp seat 4  &nbsp &nbsp  &nbsp &nbsp <br> {%seats.table2.seat4.name|| 'loading'%}</button>
-        </div>
-
-        <div class="btn-group spacer" role="group" aria-label="Table3">
-          <button type="button" ng-click="doClick(seats.table3.seat1, $event)" class="btn btn-default seat">  &nbsp &nbsp  &nbsp &nbsp seat 1 &nbsp &nbsp  &nbsp &nbsp  <br> {%seats.table3.seat1.name|| 'loading'%}</button>
-          <button type="button" ng-click="doClick(seats.table3.seat2, $event)" class="btn btn-default seat"> &nbsp &nbsp  &nbsp &nbsp seat 2  &nbsp &nbsp  &nbsp &nbsp  <br> {%seats.table3.seat2.name|| 'loading'%}</button>
-          <h1><span class="label label-info" ng-click="viewThumbs('table3')"> &nbsp &nbsp  &nbsp &nbsp   Table 3  &nbsp &nbsp &nbsp  &nbsp &nbsp </span></h1>
-          <button type="button" ng-click="doClick(seats.table3.seat3, $event)" class="btn btn-default seat"> &nbsp &nbsp  &nbsp &nbsp seat 3  &nbsp &nbsp  &nbsp &nbsp <br> {%seats.table3.seat3.name|| 'loading'%}</button>
-          <button type="button" ng-click="doClick(seats.table3.seat4, $event)" class="btn btn-default seat"> &nbsp &nbsp  &nbsp &nbsp seat 4  &nbsp &nbsp  &nbsp &nbsp <br> {%seats.table3.seat4.name|| 'loading'%}</button>
-        </div>
-
-        <div class="btn-group spacer" role="group" aria-label="Table4">
-          <button  type="button" ng-click="doClick(seats.table4.seat1, $event)" class="btn btn-default seat"> &nbsp &nbsp  &nbsp &nbsp seat 1  &nbsp &nbsp  &nbsp &nbsp <br> {%seats.table4.seat1.name|| 'loading'%}</button>
-          <button  type="button" ng-click="doClick(seats.table4.seat2, $event)" class="btn btn-default seat"> &nbsp &nbsp  &nbsp &nbsp seat 2  &nbsp &nbsp  &nbsp &nbsp <br> {%seats.table4.seat2.name|| 'loading'%}</button>
-          <h1><span class="label label-info" ng-click="viewThumbs('table4')"> &nbsp &nbsp  &nbsp &nbsp   Table 4  &nbsp &nbsp &nbsp  &nbsp &nbsp </span></h1>
-          <button type="button" ng-click="doClick(seats.table4.seat3, $event)" class="btn btn-default seat"> &nbsp &nbsp  &nbsp &nbsp seat 3  &nbsp &nbsp  &nbsp &nbsp <br> {%seats.table4.seat3.name|| 'loading'%}</button>
-          <button type="button" ng-click="doClick(seats.table4.seat4, $event)" class="btn btn-default seat"> &nbsp &nbsp  &nbsp &nbsp seat 4  &nbsp &nbsp  &nbsp &nbsp <br> {%seats.table4.seat4.name|| 'loading'%}</button>
-        </div>
-
-
-      </div>
         <div class="well well-sm urlbar">
         <div>{% currentSeat %}</div>
         <div>URL: {% currentURL %}</div>

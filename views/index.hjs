@@ -15,13 +15,13 @@
     <script src="/bower_components/angular-route/angular-route.min.js"></script>
     <script src="/socket.io/socket.io.js"></script>
     <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.12.0.js"></script>
-    <script src="/js/app.min.js"></script>
     <script src = "//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.3/angular-cookies.js"></script>
-
 
     <!-- easyrtc (below) installed in a hacky way -->
     <script src="js/rtctools.js"></script>
-
+    
+    <!-- load main application file -->
+    <script src="/js/app.min.js"></script>
 
   </head>
   <body>

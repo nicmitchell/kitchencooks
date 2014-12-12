@@ -21,7 +21,7 @@ module.exports = function(grunt){
       },
       easyrtc: {
         src: ['dev/js/easyrtc/easyrtc.js', 'dev/js/tools/*.js'],
-        dest: 'public/js/rtctools.js'
+        dest: 'dev/temp/rtc.js'
       }
     },
     jshint:{
@@ -32,7 +32,7 @@ module.exports = function(grunt){
         files: {
           'public/js/app.min.js': ['dev/temp/app.js']
         }
-      }
+      },
 
     },
     watch: {
@@ -43,7 +43,7 @@ module.exports = function(grunt){
     }
   });
 
-  grunt.registerTask('default', ['concat:js', 'uglify:scripts', 'concat:css', 'concat:easyrtc']);
+  grunt.registerTask('default', ['concat:js', 'uglify:scripts', 'concat:css']);
 
 };
 

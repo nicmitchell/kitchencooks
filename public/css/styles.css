@@ -1,6 +1,6 @@
 /* from style.css */
 body {
-  padding: 50px;
+  /*padding: 50px;*/
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
@@ -64,8 +64,12 @@ body {
     /*background-color:#ffd0d0;*/
     margin-left:0px;
     margin-top:0px;
+    min-height: 2000px;
 }
 
+.navbar-static-top {
+  margin-bottom: 19px;
+}
 /*#killButton {
     opacity:0.7;
 }

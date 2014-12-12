@@ -81,5 +81,8 @@ build/Release
 # https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git-
 node_modules
 
+# ingore temp files
+dev/temp/
+
 # Github API Keys
 github-keys.js

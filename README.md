@@ -36,6 +36,9 @@
 From within the root directory:
 
     npm install
+    bower install
+    grunt
+
 
 ### Roadmap
 

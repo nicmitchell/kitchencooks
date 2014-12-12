@@ -12,12 +12,6 @@ var GitHubStrategy = require('passport-github').Strategy; // passport-github mod
 var session = require('express-session'); // express-session for session saving
 var githubKeys = require('./github-keys');
 
-console.log('key', githubKeys.githubKeys.clientId);
-
-// // get a github api client_id and client_secret
-// var GITHUB_CLIENT_ID = "3e2385be8d385086dcba";
-// var GITHUB_CLIENT_SECRET = "b5f2a464b6331642a30375e0f917603fd6ef1019";
-
 var routes = require('./routes/index');
 
 var app = express();

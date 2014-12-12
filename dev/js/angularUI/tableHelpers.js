@@ -27,7 +27,7 @@ var startOrJoinVideo = function(seat, $scope){
     window.open('https://appear.in/hrr-kitchen-'+ seat.tableNumber);
 
     //updates the firebase
-    fb.hangouts.set($scope.hangouts);
+    fbHangouts.set($scope.hangouts);
 
   }else{
 
@@ -43,7 +43,7 @@ var startOrJoinVideo = function(seat, $scope){
       $scope.currentSeat = seat.tableNumber + ' - ' + seat.seatNumber;
     });
 
-    fb.hangouts.set($scope.hangouts);
+    fbHangouts.set($scope.hangouts);
 
   }
 
@@ -64,7 +64,7 @@ var handleClick = function(seat, $event, $scope) {
       seat.taken = true;
       $scope.satDown = true;
 
-      fb.seating.set($scope.seats);
+      fbSeating.set($scope.seats);
 
       //calls above function
       startOrJoinVideo(seat, $scope);
@@ -89,7 +89,7 @@ var handleClick = function(seat, $event, $scope) {
       $scope.currentURL = "No current hangout url";
 
       //updates firebase
-      fb.seating.set($scope.seats);
+      fbSeating.set($scope.seats);
 
       var table = $scope.hangouts[seat.tableNumber];
 
@@ -245,6 +245,6 @@ var clearRoom = function(){
     }
   };
 
-  fb.hangouts.set(hangouts);
-  fb.seating.set(seating);
+  fbHangouts.set(hangouts);
+  fbSeating.set(seating);
 };

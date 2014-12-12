@@ -18,13 +18,13 @@
 //   $('#messageInput').keypress(function (e) {
 //     if (e.keyCode == 13) {
 //       var text = $('#messageInput').val();
-//       fb.chats.push({name: user.name, text: text});
+//       fbChats.push({name: user.name, text: text});
 //       $('#messageInput').val('');
 //     }
 //   });
 
 //   //collects any firebase data that is added
-//   fb.chats.on('child_added', function(snapshot) {
+//   fbChats.on('child_added', function(snapshot) {
 //     var message = snapshot.val();
 //     displayChatMessage(message.name, message.text);
 //   });

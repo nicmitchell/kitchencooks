@@ -1,4 +1,4 @@
-var fbSeating = new Firebase('https://hrr-kitchen.firebaseio.com/seating');
+var fbSeating = new Firebase('https://hrr-kitchen-legacy.firebaseio.com/seating');
 
 /* App Module */
 

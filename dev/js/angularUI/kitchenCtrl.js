@@ -1,6 +1,6 @@
 window.userName = 'Loading';
 
-var fbHangouts = new Firebase('https://hrr-kitchen.firebaseio.com/hangouts');
+var fbHangouts = new Firebase('https://hrr-kitchen-legacy.firebaseio.com/hangouts');
 // if so then provide the user with the hangout url
 
 var appControllers = angular.module('appControllers', ['ngCookies']);

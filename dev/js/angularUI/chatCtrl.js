@@ -1,4 +1,4 @@
-var fbChats = new Firebase('https://hrr-kitchen.firebaseio.com/chats');
+var fbChats = new Firebase('https://hrr-kitchen-legacy.firebaseio.com/chats');
 
 var appControllers = angular.module('appControllers');
 

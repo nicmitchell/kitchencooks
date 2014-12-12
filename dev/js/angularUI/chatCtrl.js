@@ -1,4 +1,4 @@
-var fbChats = new Firebase('https://hrr-kitchen-legacy.firebaseio.com/chats');
+// var fbChats = new Firebase('https://hrr-kitchen-legacy.firebaseio.com/chats');
 
 var appControllers = angular.module('appControllers');
 
@@ -18,13 +18,13 @@ appControllers.controller('chatCtrl', ['$scope', '$cookies',
   $('#messageInput').keypress(function (e) {
     if (e.keyCode == 13) {
       var text = $('#messageInput').val();
-      fbChats.push({name: user.name, text: text});
+      fb.chats.push({name: user.name, text: text});
       $('#messageInput').val('');
     }
   });
 
   //collects any firebase data that is added
-  fbChats.on('child_added', function(snapshot) {
+  fb.chats.on('child_added', function(snapshot) {
     var message = snapshot.val();
     displayChatMessage(message.name, message.text);
   });

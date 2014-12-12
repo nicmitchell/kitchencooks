@@ -1,4 +1,9 @@
-var fbSeating = new Firebase('https://hrr-kitchen-legacy.firebaseio.com/seating');
+var fb = new Firebase('https://hrr-kitchen-legacy.firebaseio.com/');
+fb.seating = fb + 'seating';
+fb.chats = fb + 'chats';
+fb.hangouts = fb + 'hangouts';
+
+// var fbSeating = new Firebase('https://hrr-kitchen-legacy.firebaseio.com/seating');
 
 /* App Module */
 

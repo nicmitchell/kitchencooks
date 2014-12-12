@@ -40,8 +40,8 @@ app.use('/', routes);
 
 // GitHub config, this callback should match callback in api
 passport.use(new GitHubStrategy({
-    clientID: githubKeys.githubKeys.clientId, //GITHUB_CLIENT_ID,
-    clientSecret: githubKeys.githubKeys.clientSecret, //GITHUB_CLIENT_SECRET,
+    clientID: githubKeys.client.clientId, //GITHUB_CLIENT_ID,
+    clientSecret: githubKeys.client.clientSecret, //GITHUB_CLIENT_SECRET,
     callbackURL: "http://localhost:3000/auth/github/callback"
   },
   function(accessToken, refreshToken, profile, done) {

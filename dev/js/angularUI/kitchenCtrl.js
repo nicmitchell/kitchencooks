@@ -1,6 +1,6 @@
 window.userName = 'Loading';
 
-var fbHangouts = new Firebase('https://hrr-kitchen-legacy.firebaseio.com/hangouts');
+// var fb.hangouts = new Firebase('https://hrr-kitchen-legacy.firebaseio.com/hangouts');
 // if so then provide the user with the hangout url
 
 var appControllers = angular.module('appControllers', ['ngCookies']);
@@ -26,7 +26,7 @@ appControllers.controller('kitchenCtrl', ['$scope', '$cookies',
     $scope.hangouts = {};
 
     //Updates the local seating data when the firebase updates
-    fbSeating.on("value", function(snapshot) {
+    fb.seating.on("value", function(snapshot) {
       $scope.$apply(function(){
         $scope.seats = snapshot.val();
       });
@@ -34,7 +34,7 @@ appControllers.controller('kitchenCtrl', ['$scope', '$cookies',
 
 
     //Updates the hangout urls- currently not used as the app now uses appear.in instead of google hangouts
-    fbHangouts.on("value", function(snapshot) {
+    fb.hangouts.on("value", function(snapshot) {
 
       $scope.$apply(function(){
         $scope.hangouts = snapshot.val();

@@ -19,6 +19,7 @@
 
     <!-- easyrtc (below) installed in a hacky way -->
     <script src="js/easyrtc.js"></script>
+    <script src="js/videoFaces.js"></script>
     <script src="js/bootbox.js"></script>
     
     <!-- load main application file -->
@@ -53,7 +54,7 @@
           <p>Welcome to the {{ title }}</p>
         </div>
         <div ng-view></div>
-        <div class='chat-div' ng-include="'partials/chat-bar.html'"></div>
+        <!-- <div class='chat-div' ng-include="'partials/chat-bar.html'"></div> -->
       </div>
   </body>
 </html>

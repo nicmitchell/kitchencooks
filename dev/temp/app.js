@@ -156,12 +156,12 @@ function viewThumbVideos (table) {
 }
 
 
-var fbChats = new Firebase('https://hrr-kitchen-legacy.firebaseio.com/chats');
+// var fbChats = new Firebase('https://hrr-kitchen-legacy.firebaseio.com/chats');
 
-var appControllers = angular.module('appControllers');
+var chatControllers = angular.module('chatControllers');
 
 //this controller handles the chat view
-appControllers.controller('chatCtrl', ['$scope', '$cookies',
+chatControllers.controller('chatCtrl', ['$scope', '$cookies',
   function ($scope, $cookies) {
 
   var user  = {};
@@ -176,13 +176,13 @@ appControllers.controller('chatCtrl', ['$scope', '$cookies',
   $('#messageInput').keypress(function (e) {
     if (e.keyCode == 13) {
       var text = $('#messageInput').val();
-      fbChats.push({name: user.name, text: text});
+      fb.chats.push({name: user.name, text: text});
       $('#messageInput').val('');
     }
   });
 
   //collects any firebase data that is added
-  fbChats.on('child_added', function(snapshot) {
+  fb.chats.on('child_added', function(snapshot) {
     var message = snapshot.val();
     displayChatMessage(message.name, message.text);
   });
@@ -200,7 +200,7 @@ appControllers.controller('chatCtrl', ['$scope', '$cookies',
 
 window.userName = 'Loading';
 
-var fbHangouts = new Firebase('https://hrr-kitchen-legacy.firebaseio.com/hangouts');
+// var fb.hangouts = new Firebase('https://hrr-kitchen-legacy.firebaseio.com/hangouts');
 // if so then provide the user with the hangout url
 
 var appControllers = angular.module('appControllers', ['ngCookies']);
@@ -226,7 +226,7 @@ appControllers.controller('kitchenCtrl', ['$scope', '$cookies',
     $scope.hangouts = {};
 
     //Updates the local seating data when the firebase updates
-    fbSeating.on("value", function(snapshot) {
+    fb.seating.on("value", function(snapshot) {
       $scope.$apply(function(){
         $scope.seats = snapshot.val();
       });
@@ -234,7 +234,7 @@ appControllers.controller('kitchenCtrl', ['$scope', '$cookies',
 
 
     //Updates the hangout urls- currently not used as the app now uses appear.in instead of google hangouts
-    fbHangouts.on("value", function(snapshot) {
+    fb.hangouts.on("value", function(snapshot) {
 
       $scope.$apply(function(){
         $scope.hangouts = snapshot.val();
@@ -255,7 +255,12 @@ appControllers.controller('kitchenCtrl', ['$scope', '$cookies',
 );
 
 
-var fbSeating = new Firebase('https://hrr-kitchen-legacy.firebaseio.com/seating');
+var fb = new Firebase('https://hrr-kitchen-legacy.firebaseio.com/');
+fb.seating = fb + 'seating';
+fb.chats = fb + 'chats';
+fb.hangouts = fb + 'hangouts';
+
+// var fbSeating = new Firebase('https://hrr-kitchen-legacy.firebaseio.com/seating');
 
 /* App Module */
 
@@ -315,7 +320,7 @@ var startOrJoinVideo = function(seat, $scope){
     window.open('https://appear.in/hrr-kitchen-'+ seat.tableNumber);
 
     //updates the firebase
-    fbHangouts.set($scope.hangouts);
+    fb.hangouts.set($scope.hangouts);
 
   }else{
 
@@ -331,7 +336,7 @@ var startOrJoinVideo = function(seat, $scope){
       $scope.currentSeat = seat.tableNumber + ' - ' + seat.seatNumber;
     });
 
-    fbHangouts.set($scope.hangouts);
+    fb.hangouts.set($scope.hangouts);
 
   }
 
@@ -352,7 +357,7 @@ var handleClick = function(seat, $event, $scope) {
       seat.taken = true;
       $scope.satDown = true;
 
-      fbSeating.set($scope.seats);
+      fb.seating.set($scope.seats);
 
       //calls above function
       startOrJoinVideo(seat, $scope);
@@ -377,7 +382,7 @@ var handleClick = function(seat, $event, $scope) {
       $scope.currentURL = "No current hangout url";
 
       //updates firebase
-      fbSeating.set($scope.seats);
+      fb.seating.set($scope.seats);
 
       var table = $scope.hangouts[seat.tableNumber];
 
@@ -533,6 +538,6 @@ var clearRoom = function(){
     }
   };
 
-  fbHangouts.set(hangouts);
-  fbSeating.set(seating);
+  fb.hangouts.set(hangouts);
+  fb.seating.set(seating);
 };

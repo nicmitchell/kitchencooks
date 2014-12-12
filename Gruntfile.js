@@ -12,8 +12,13 @@ module.exports = function(grunt){
     pkg: grunt.file.readJSON('package.json'),
     concat: {
       js: {
-        src: ['dev/js/logic/*js', 'dev/js/angularUI/*js'],
-        dest: 'dev/temp/app.js'
+        src: ['dev/js/angularUI/main.js', 'dev/js/angularUI/kitchenCtrl.js',
+             'dev/js/angularUI/tableHelpers.js'],
+        dest: 'public/js/app.min.js'
+      },
+      video: {
+        src: ['dev/js/logic/videoFaces.js'],
+        dest: 'public/js/videoFaces.js'
       },
       css: {
         src: ['dev/css/*.css'],
@@ -43,7 +48,7 @@ module.exports = function(grunt){
     }
   });
 
-  grunt.registerTask('default', ['concat:js', 'uglify:scripts', 'concat:css']);
+  grunt.registerTask('default', ['concat:js', 'concat:css', 'concat:video']);
 
 };
 

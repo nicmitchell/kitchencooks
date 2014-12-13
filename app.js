@@ -12,6 +12,8 @@ var GitHubStrategy = require('passport-github').Strategy; // passport-github mod
 var session = require('express-session'); // express-session for session saving
 var githubKeys = require('./github-keys');
 
+console.log('env', process.env);
+
 var routes = require('./routes/index');
 
 var app = express();
@@ -40,8 +42,8 @@ app.use('/', routes);
 
 // GitHub config, this callback should match callback in api
 passport.use(new GitHubStrategy({
-    clientID: githubKeys.client.clientId, //GITHUB_CLIENT_ID,
-    clientSecret: githubKeys.client.clientSecret, //GITHUB_CLIENT_SECRET,
+    clientID: process.env.GITHUB_CLIENT_ID, // githubKeys.client.clientId, 
+    clientSecret:  process.env.GITHUB_CLIENT_SECRET, // githubKeys.client.clientSecret,
     callbackURL: "http://localhost:3000/auth/github/callback"
   },
   function(accessToken, refreshToken, profile, done) {

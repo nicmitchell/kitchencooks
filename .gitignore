@@ -86,3 +86,6 @@ dev/temp/
 
 # Github API Keys
 github-keys.js
+
+# Heroku .env
+.env

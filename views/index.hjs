@@ -29,7 +29,7 @@
       window.avatar = "{{user._json.avatar_url}}";
     </script>
   </head>
-  <body onload="appInit()">
+  <body>
     <div ng-init="avatar='{{user._json.avatar_url}}'"></div>
     <!-- Static navbar -->
       <nav class="navbar navbar-default navbar-static-top" role="navigation">

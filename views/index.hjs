@@ -27,12 +27,12 @@
 
   </head>
   <body>
-    <!-- Static navbar -->
-     <div ng-include="'partials/nav.html'"></div>
+  <!-- Static navbar -->
+    <div ng-include="'partials/nav.html'"></div>
 
-      <div class="container">
-        <div ng-view></div>
-        <!-- <div class='chat-div' ng-include="'partials/chat-bar.html'"></div> -->
-      </div>
+    <div class="container">
+      <div ng-view></div>
+      <!-- <div class='chat-div' ng-include="'partials/chat-bar.html'"></div> -->
+    </div>
   </body>
 </html>

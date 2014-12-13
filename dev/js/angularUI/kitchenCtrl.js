@@ -28,7 +28,7 @@ appControllers.controller('kitchenCtrl', ['$scope', '$cookies',
     //Updates the local seating data when the firebase updates
     fbSeating.on("value", function(snapshot) {
       // $scope.$apply(function(){
-        console.log('fbSeating on value', fbSeating);
+        console.log('fbSeating on value', snapshot);
         $scope.seats = snapshot.val();
       // });
     });

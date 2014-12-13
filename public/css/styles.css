@@ -56,6 +56,10 @@ video.thumbCommon{
   left: 0 !important;
 }
 
+.avatar {
+  margin-top: 5px;
+  border: 1px solid black;
+}
 /*#killButton {
     opacity:0.7;
 }

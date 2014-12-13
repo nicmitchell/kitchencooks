@@ -10,7 +10,7 @@ var methodOverride = require('method-override'); // method-override core module
 var passport = require('passport'); // passport core module for authentication
 var GitHubStrategy = require('passport-github').Strategy; // passport-github module for authentication
 var session = require('express-session'); // express-session for session saving
-var githubKeys = require('./github-keys');
+// var githubKeys = require('./github-keys');
 
 console.log('env', process.env);
 

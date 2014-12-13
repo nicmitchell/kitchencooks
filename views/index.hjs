@@ -31,9 +31,6 @@
      <div ng-include="'partials/nav.html'"></div>
 
       <div class="container">
-        <div class="page-header text-center">
-          <h1>{{ title }}</h1>
-        </div>
         <div ng-view></div>
         <!-- <div class='chat-div' ng-include="'partials/chat-bar.html'"></div> -->
       </div>

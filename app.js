@@ -20,9 +20,8 @@ if(process.env.GITHUB_CLIENT_ID && process.env.GITHUB_CLIENT_SECRET){
   var GITHUB_CLIENT_SECRET = githubKeys.client.clientSecret;
   console.log('Using github-keys module');
 }
-var auth = require('./helpers/authhelpers');
-
-console.log("auth: ", auth.loggedIn);
+// var auth = require('./helpers/authhelpers');
+// console.log("auth: ", auth.loggedIn);
 
 // console.log('env', process.env);
 // var routes = require('./routes/index');
@@ -75,6 +74,7 @@ passport.deserializeUser(function(user, done) {
 
 app.get('/', function(req, res){
   if (req.user) {
+    console.log(req.user);
   res.render('index', { user: req.user });
   } else {
     res.redirect('/login');

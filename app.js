@@ -22,10 +22,10 @@ if(process.env.GITHUB_CLIENT_ID && process.env.GITHUB_CLIENT_SECRET){
 }
 var auth = require('./helpers/authhelpers');
 
+console.log("auth: ", auth.loggedIn);
 
 // console.log('env', process.env);
-
-var routes = require('./routes/index');
+// var routes = require('./routes/index');
 
 var app = express();
 
@@ -49,7 +49,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use('/', routes);
+// app.use('/', routes);
 
 // GitHub config, this callback should match callback in api
 passport.use(new GitHubStrategy({
@@ -74,7 +74,15 @@ passport.deserializeUser(function(user, done) {
 });
 
 app.get('/', function(req, res){
+  if (req.user) {
   res.render('index', { user: req.user });
+  } else {
+    res.redirect('/login');
+  }
+});
+
+app.get('/login', function(req, res){
+  res.render('login');
 });
 
 app.get('/logout', function(req, res) {
@@ -92,7 +100,7 @@ app.get('/auth/github',
 app.get('/auth/github/callback',
   passport.authenticate('github', { failureRedirect: '/' }),
   function(req, res) {
-    console.log('req.session.passport.user: ', req.user);
+    console.log('Callback: ', req.user);
      res.cookie('user', req.user.displayName);
     res.redirect('/');
   });

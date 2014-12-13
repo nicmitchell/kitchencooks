@@ -41,7 +41,6 @@
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="/auth/github">Log In with Github <span class="sr-only">(current)</span></a></li>
               <li><a href="/logout">Log Out</a></li>
             </ul>
           </div><!--/.nav-collapse -->
@@ -73,13 +72,5 @@
         <div ng-view></div>
         <!-- <div class='chat-div' ng-include="'partials/chat-bar.html'"></div> -->
       </div>
-  <body>
-  <!-- Static navbar -->
-    <div ng-include="'partials/nav.html'"></div>
-
-    <div class="container">
-      <div ng-view></div>
-      <!-- <div class='chat-div' ng-include="'partials/chat-bar.html'"></div> -->
-    </div>
   </body>
 </html>

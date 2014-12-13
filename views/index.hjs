@@ -24,7 +24,10 @@
     <script src="js/demo_multiparty.js"></script>
     <!-- load main application file -->
     <script src="/js/app.min.js"></script>
-
+    <script>
+      // append '&s=40' to end to make 40px in size
+      window.avatar = "{{user._json.avatar_url}}";
+    </script>
   </head>
   <body onload="appInit()">
     <div ng-init="avatar='{{user._json.avatar_url}}'"></div>

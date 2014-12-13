@@ -16,32 +16,32 @@ var startOrJoinVideo = function(seat, $scope){
     $(".modal-backdrop").css("z-index", "0");
 
     //updates model and view with the new seating arrangment
-    $scope.$apply(function(){
+    // $scope.$apply(function(){
       console.log('SEAT', seat, table);
       $scope.currentURL = table.url;
       $scope.currentSeat = seat.tableNumber + ' - ' + seat.seatNumber;
-    });
+    // });
 
     //call function to start video and store link to it here
     //should probably be changed so that it is called when "OK" is clicked on the bootbox modal
-    window.open('https://appear.in/hrr-kitchen-'+ seat.tableNumber);
+    // window.open('https://appear.in/hrr-kitchen-'+ seat.tableNumber);
 
     //updates the firebase
     fbHangouts.set($scope.hangouts);
 
   }else{
 
-    window.open('https://appear.in/hrr-kitchen-'+ seat.tableNumber);
+    // window.open('https://appear.in/hrr-kitchen-'+ seat.tableNumber);
 
     //modal alert box
     bootbox.alert('Joining a video chat! Allow the kitchen app to access your camera.');
     $(".modal-backdrop").css("z-index", "0");
 
     //updates model and view with the new seating arrangment
-    $scope.$apply(function(){
+    // $scope.$apply(function(){
       $scope.currentURL = table.url;
       $scope.currentSeat = seat.tableNumber + ' - ' + seat.seatNumber;
-    });
+    // });
 
     fbHangouts.set($scope.hangouts);
 

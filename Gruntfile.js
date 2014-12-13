@@ -25,7 +25,7 @@ module.exports = function(grunt){
         dest: 'public/css/styles.css'
       },
       easyrtc: {
-        src: ['dev/js/easyrtc/easyrtc.js', 'dev/js/tools/*.js'],
+        src: ['dev/js/easyrtc/easyrtc.js', 'dev/js/easyrtc/demo_multiparty.js', 'dev/js/tools/*.js'],
         dest: 'dev/temp/rtc.js'
       }
     },

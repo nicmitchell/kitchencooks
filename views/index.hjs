@@ -21,12 +21,13 @@
     <script src="js/easyrtc.js"></script>
     <script src="js/videoFaces.js"></script>
     <script src="js/bootbox.js"></script>
+    <script src="js/demo_multiparty.js"></script>
     
     <!-- load main application file -->
     <script src="/js/app.min.js"></script>
 
   </head>
-  <body>
+  <body onload="appInit()">
     <!-- Static navbar -->
       <nav class="navbar navbar-default navbar-static-top" role="navigation">
         <div class="container">
@@ -49,6 +50,31 @@
       </nav>
 
       <div class="container">
+        <!-- EasyRTC example -->
+         <!-- <div style="position:relative;float:left;width:300px">
+            <video style="float:left" id="self" width="300" height="200" muted="muted"></video>
+            <video style="float:left" id="caller" width="300" height="200" muted="muted"></video>
+            <video style="float:left" id="caller2" width="300" height="200" muted="muted"></video>
+            <video style="float:left" id="caller3" width="300" height="200" muted="muted"></video>
+         </div>
+         <div id="otherClients"> </div>
+         <button class="join-room" onclick="joinBallroom()">Join Room</button> -->
+         <div id="fullpage"  class="table boxCommon" style="background-image:url(images/irongrip.png)">
+             <video id="box0" class="transit boxCommon thumbCommon easyRTCMirror" muted="muted" volume="0" style="max-width:560px"></video>
+             <video id="box1" class="transit boxCommon thumbCommon" style="visibility:hidden; max-width:560px"></video>
+             <video id="box2" class="transit boxCommon thumbCommon" style="visibility:hidden; max-width:560px"></video>
+             <video id="box3" class="transit boxCommon thumbCommon" style="visibility:hidden; max-width:560px"></video>
+             <div id="textentryBox" onsubmit="sendText()" style="display:none" >
+                 <input type="text" id="textentryField"  class="transit boxcommon" /><br>
+                 <button id="textentrySubmit" style="float:right;margin-right:1em" onclick="sendText()">Send</button>
+                 <button id="textentryCancel" style="float:left;margin-left:1em" onclick="cancelText()">Cancel</button>
+             </div>
+
+             <img id="killButton" class="transit boxCommon" onclick="killActiveBox()" src="images/button_close.png" style="display:none;z-index:3" alt="close button" />
+             <img id="muteButton" class="transit boxCommon" onclick ="muteActiveBox()" src="images/button_mute.png" style="display:none;z-index:3" alt="mute button" />
+             <img id="textEntryButton" class="transit boxCommon" onclick ="showTextEntry()" src="images/textEntry.png" style="z-index:-3;display:none" alt="text button" />
+         </div>
+         <!-- end example -->
         <div class="jumbotron">
           <h1>Hello, {{ user.displayName }} </h1>
           <p>Welcome to the {{ title }}</p>

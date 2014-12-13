@@ -1,0 +1,32 @@
+Notes
+- get rid of Hogan
+
+Express routing
+- index in the views
+- only nav bar is in the index
+  - kitchen tables, seats, chats
+
+video faces takes care of thumbnails
+socketvideochat can be deleted
+
+videofaces.js -> view ThumbVideos is not done, but important
+
+authorization is in app.js file 
+  - sets cookie
+  - cookie used in NG to save username
+
+Half features
+- 
+
+
+firebase - angularUI? 
+
+
+patimplementwhiteboard branch
+- fully workable whiteboard
+  - not yet integrated
+  - google acct and 
+
+
+Firebase Login: hrrkitchen@gmail.com
+password: hackreactor

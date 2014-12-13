@@ -109,6 +109,60 @@
       "tableNumber" : "table4",
       "taken" : true
     },
-    "tableNumber" : "table2"
+    "tableNumber" : "table4"
+  },
+  "table5" : {
+    "seat1" : {
+      "name" : "rory",
+      "seatNumber" : "seat1",
+      "tableNumber" : "table5",
+      "taken" : true
+    },
+    "seat2" : {
+      "name" : "empty",
+      "seatNumber" : "seat2",
+      "tableNumber" : "table5",
+      "taken" : false
+    },
+    "seat3" : {
+      "name" : "rory",
+      "seatNumber" : "seat3",
+      "tableNumber" : "table5",
+      "taken" : true
+    },
+    "seat4" : {
+      "name" : "rory",
+      "seatNumber" : "seat4",
+      "tableNumber" : "table5",
+      "taken" : true
+    },
+    "tableNumber" : "table5"
+  },
+  "table6" : {
+    "seat1" : {
+      "name" : "rory",
+      "seatNumber" : "seat1",
+      "tableNumber" : "table6",
+      "taken" : true
+    },
+    "seat2" : {
+      "name" : "empty",
+      "seatNumber" : "seat2",
+      "tableNumber" : "table6",
+      "taken" : false
+    },
+    "seat3" : {
+      "name" : "rory",
+      "seatNumber" : "seat3",
+      "tableNumber" : "table6",
+      "taken" : true
+    },
+    "seat4" : {
+      "name" : "rory",
+      "seatNumber" : "seat4",
+      "tableNumber" : "table6",
+      "taken" : true
+    },
+    "tableNumber" : "table6"
   }
 }

@@ -51,10 +51,10 @@
       <div class="container">
         <!-- EasyRTC example -->
          <div id="fullpage"  class="table boxCommon" style="background-image:url(images/irongrip.png)">
-             <video id="box0" class="transit boxCommon thumbCommon easyRTCMirror" muted="muted" volume="0" style="max-width:560px"></video>
-             <video id="box1" class="transit boxCommon thumbCommon" style="visibility:hidden; max-width:560px"></video>
-             <video id="box2" class="transit boxCommon thumbCommon" style="visibility:hidden; max-width:560px"></video>
-             <video id="box3" class="transit boxCommon thumbCommon" style="visibility:hidden; max-width:560px"></video>
+             <video id="box0" class="transit boxCommon thumbCommon easyRTCMirror" muted="muted" volume="0"></video>
+             <video id="box1" class="transit boxCommon thumbCommon" style="visibility:hidden;"></video>
+             <video id="box2" class="transit boxCommon thumbCommon" style="visibility:hidden;"></video>
+             <video id="box3" class="transit boxCommon thumbCommon" style="visibility:hidden;"></video>
              <div id="textentryBox" onsubmit="sendText()" style="display:none" >
                  <input type="text" id="textentryField"  class="transit boxcommon" /><br>
                  <button id="textentrySubmit" style="float:right;margin-right:1em" onclick="sendText()">Send</button>

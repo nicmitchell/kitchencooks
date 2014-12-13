@@ -75,7 +75,7 @@ passport.deserializeUser(function(user, done) {
 app.get('/', function(req, res){
   if (req.user) {
     console.log(req.user);
-  res.render('index', { user: req.user });
+  res.render('index', { user: req.user, title: 'Kitchen' });
   } else {
     res.redirect('/login');
   }

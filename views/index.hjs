@@ -23,9 +23,13 @@
     <script src="js/demo_multiparty.js"></script>
     <!-- load main application file -->
     <script src="/js/app.min.js"></script>
-
+    <script>
+      // append '&s=40' to end to make 40px in size
+      window.avatar = "{{user._json.avatar_url}}";
+    </script>
   </head>
   <body onload="appInit()">
+    <div ng-init="avatar='{{user._json.avatar_url}}'"></div>
     <!-- Static navbar -->
       <nav class="navbar navbar-default navbar-static-top" role="navigation">
         <div class="container">
@@ -40,7 +44,7 @@
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="/auth/github">Log In with Github <span class="sr-only">(current)</span></a></li>
+              <li class="avatar"><img src="{{user._json.avatar_url}}&s=40" alt=""></li>
               <li><a href="/logout">Log Out</a></li>
             </ul>
           </div><!--/.nav-collapse -->
@@ -69,16 +73,8 @@
           <h1>Hello, {{ user.displayName }} </h1>
           <p>Welcome to the {{ title }}</p>
         </div>
-        <div ng-view></div>
+        <div  ng-view></div>
         <!-- <div class='chat-div' ng-include="'partials/chat-bar.html'"></div> -->
       </div>
-  <body>
-  <!-- Static navbar -->
-    <div ng-include="'partials/nav.html'"></div>
-
-    <div class="container">
-      <div ng-view></div>
-      <!-- <div class='chat-div' ng-include="'partials/chat-bar.html'"></div> -->
-    </div>
   </body>
 </html>

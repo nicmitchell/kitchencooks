@@ -22,7 +22,6 @@
     <script src="js/videoFaces.js"></script>
     <script src="js/bootbox.js"></script>
     <script src="js/demo_multiparty.js"></script>
-    
     <!-- load main application file -->
     <script src="/js/app.min.js"></script>
 
@@ -82,5 +81,13 @@
         <div ng-view></div>
         <!-- <div class='chat-div' ng-include="'partials/chat-bar.html'"></div> -->
       </div>
+  <body>
+  <!-- Static navbar -->
+    <div ng-include="'partials/nav.html'"></div>
+
+    <div class="container">
+      <div ng-view></div>
+      <!-- <div class='chat-div' ng-include="'partials/chat-bar.html'"></div> -->
+    </div>
   </body>
 </html>

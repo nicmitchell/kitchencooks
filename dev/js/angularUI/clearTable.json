@@ -21,5 +21,15 @@
     "users": 0,
     "message": 0,
     "url": 0
+  },
+  "table5" : {
+    "users": 0,
+    "message": 0,
+    "url": 0
+  },
+  "table6" : {
+    "users": 0,
+    "message": 0,
+    "url": 0
   }
 }

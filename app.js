@@ -20,6 +20,8 @@ if(process.env.GITHUB_CLIENT_ID && process.env.GITHUB_CLIENT_SECRET){
   var GITHUB_CLIENT_SECRET = githubKeys.client.clientSecret;
   console.log('Using github-keys module');
 }
+var auth = require('./helpers/authhelpers');
+
 
 // console.log('env', process.env);
 

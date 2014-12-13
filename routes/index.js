@@ -9,3 +9,11 @@ router.get('/', function(req, res) {
 });
 
 module.exports = router;
+
+
+  // if (user: req.session.passport.user) {
+  //     res.render('index', { title: 'Kitchen', chat: chat, user: req.session.passport.user, avatar: req.session.passport.user._json.avatar_url });
+  // } else {
+  //   res.render('index', { title: 'Kitchen', chat: chat, user: req.session.passport.user);
+  // }
+  

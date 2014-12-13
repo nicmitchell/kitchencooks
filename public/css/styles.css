@@ -2,6 +2,7 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  margin: 0;
 }
 
 a {
@@ -22,10 +23,6 @@ a {
 }
 
 .chat-div {
-  /*position: relative;*/
-
-  /*margin-left:750px;*/
-  /*margin-top:700px;*/
   font-size: 0.7em;
   padding:2px;
   width:800px;
@@ -33,7 +30,6 @@ a {
   border:solid 1px black;
   overflow-y:scroll;
   display: block;
-  /*float:left;*/
 }
 
 /* videoFaces.css */
@@ -43,27 +39,21 @@ a {
     border-color: 2px solid blue;
 }
 
-/*.boxCommon {
-    position:absolute;
-}*/
-
 .closeButton {
     display: none;  /*hide the easyApp's close button because we have our own*/
 }
-
-/*.thumbCommon {
-    z-index:2;
-    box-shadow: 5px 5px 5px #000000;
-}*/
 
 #controlArea {
     background-color: #ff8000;
 }
 
-body {
-    /*background-color:#ffd0d0;*/
-    margin-left:0px;
-    margin-top:0px;
+/* Video Streams */
+video.thumbCommon{
+  max-width: 567px;
+  position: relative;
+  height: auto !important;
+  top: 0 !important;
+  left: 0 !important;
 }
 
 /*#killButton {

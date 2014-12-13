@@ -50,14 +50,6 @@
 
       <div class="container">
         <!-- EasyRTC example -->
-         <!-- <div style="position:relative;float:left;width:300px">
-            <video style="float:left" id="self" width="300" height="200" muted="muted"></video>
-            <video style="float:left" id="caller" width="300" height="200" muted="muted"></video>
-            <video style="float:left" id="caller2" width="300" height="200" muted="muted"></video>
-            <video style="float:left" id="caller3" width="300" height="200" muted="muted"></video>
-         </div>
-         <div id="otherClients"> </div>
-         <button class="join-room" onclick="joinBallroom()">Join Room</button> -->
          <div id="fullpage"  class="table boxCommon" style="background-image:url(images/irongrip.png)">
              <video id="box0" class="transit boxCommon thumbCommon easyRTCMirror" muted="muted" volume="0" style="max-width:560px"></video>
              <video id="box1" class="transit boxCommon thumbCommon" style="visibility:hidden; max-width:560px"></video>

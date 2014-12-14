@@ -10,6 +10,7 @@ var methodOverride = require('method-override'); // method-override core module
 var passport = require('passport'); // passport core module for authentication
 var GitHubStrategy = require('passport-github').Strategy; // passport-github module for authentication
 var session = require('express-session'); // express-session for session saving
+
 if(process.env.GITHUB_CLIENT_ID && process.env.GITHUB_CLIENT_SECRET){
   var GITHUB_CLIENT_ID = process.env.GITHUB_CLIENT_ID;
   var GITHUB_CLIENT_SECRET = process.env.GITHUB_CLIENT_SECRET;
@@ -20,11 +21,7 @@ if(process.env.GITHUB_CLIENT_ID && process.env.GITHUB_CLIENT_SECRET){
   var GITHUB_CLIENT_SECRET = githubKeys.client.clientSecret;
   console.log('Using github-keys module');
 }
-// var auth = require('./helpers/authhelpers');
-// console.log("auth: ", auth.loggedIn);
 
-// console.log('env', process.env);
-// var routes = require('./routes/index');
 
 var app = express();
 
@@ -52,7 +49,7 @@ app.use(passport.session());
 
 // GitHub config, this callback should match callback in api
 passport.use(new GitHubStrategy({
-    clientID: GITHUB_CLIENT_ID, // githubKeys.client.clientId, 
+    clientID: GITHUB_CLIENT_ID, // githubKeys.client.clientId,
     clientSecret:  GITHUB_CLIENT_SECRET, // githubKeys.client.clientSecret,
     callbackURL: "http://localhost:3000/auth/github/callback"
   },

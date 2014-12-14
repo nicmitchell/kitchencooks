@@ -1,3 +1,7 @@
+var assert = chai.assert;
+var should = chai.should();
+var expect = chai.expect;
+
 describe('Unit: appControllers', function() {
   // Our tests will go here
 

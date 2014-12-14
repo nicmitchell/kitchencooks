@@ -27,19 +27,21 @@ appControllers.controller('kitchenCtrl', ['$scope', '$cookies',
 
     //Updates the local seating data when the firebase updates
     fbSeating.on("value", function(snapshot) {
-      // $scope.$apply(function(){
-        console.log('fbSeating on value', snapshot);
+      $scope.$apply(function(){
         $scope.seats = snapshot.val();
-      // });
+        console.log('fbSeating on value', $scope.seats);
+        fbSeating.set($scope.seats);
+        roomInit();
+      });
     });
 
 
     //Updates the hangout urls- currently not used as the app now uses appear.in instead of google hangouts
     fbHangouts.on("value", function(snapshot) {
 
-      // $scope.$apply(function(){
+      $scope.$apply(function(){
         $scope.hangouts = snapshot.val();
-      // });
+      });
 
     });
 

@@ -57,7 +57,7 @@
           <h1>Hello, {{ user.displayName }} </h1>
           <p>Welcome to the {{ title }}</p>
         </div>
-        <div  ng-view></div>
+        <div ng-view></div>
         <!-- <div class='chat-div' ng-include="'partials/chat-bar.html'"></div> -->
       </div>
   </body>

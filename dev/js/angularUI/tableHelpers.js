@@ -16,11 +16,11 @@ var startOrJoinVideo = function(seat, $scope){
     $(".modal-backdrop").css("z-index", "0");
 
     //updates model and view with the new seating arrangment
-    // $scope.$apply(function(){
+    $scope.$apply(function(){
       console.log('SEAT', seat, table);
       $scope.currentURL = table.url;
       $scope.currentSeat = seat.tableNumber + ' - ' + seat.seatNumber;
-    // });
+    });
 
     //call function to start video and store link to it here
     //should probably be changed so that it is called when "OK" is clicked on the bootbox modal
@@ -38,10 +38,10 @@ var startOrJoinVideo = function(seat, $scope){
     $(".modal-backdrop").css("z-index", "0");
 
     //updates model and view with the new seating arrangment
-    // $scope.$apply(function(){
+    $scope.$apply(function(){
       $scope.currentURL = table.url;
       $scope.currentSeat = seat.tableNumber + ' - ' + seat.seatNumber;
-    // });
+    });
 
     fbHangouts.set($scope.hangouts);
 
@@ -51,10 +51,10 @@ var startOrJoinVideo = function(seat, $scope){
 
 //This functions decides the outcome when a user clicks on a seat
 var handleClick = function(seat, $event, $scope) {
-
-  $event.preventDefault();
-
-  if (!$scope.satDown){
+  if($event){
+      $event.preventDefault();
+  }
+  if (!$scope || !$scope.satDown){
 
     if (!seat.taken){
 

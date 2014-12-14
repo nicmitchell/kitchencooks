@@ -11,7 +11,7 @@
 
 <!-- This view file shows the kitchen and thumbs videos to the user -->
 
-<div class="well text-center">
+<div class="well text-center" onload="roomInit()">
   <div class="row">
     <div class="col-sm-4">
       <table class="table">
@@ -22,12 +22,12 @@
         </thead>
         <tbody>
           <tr>
-            <td><button  type="button" ng-click="doClick(seats.table1.seat1, $event)" class="btn btn-default seat btn-lg btn-block">
+            <td><button type="button" ng-click="doClick(seats.table1.seat1, $event)" class="btn btn-default seat btn-lg btn-block">
               <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
              </button>
              <span class="label label-default">{%seats.table1.seat1.name|| 'loading'%}</span>
              </td>
-            <td><button  type="button" ng-click="doClick(seats.table1.seat2, $event)" class="btn btn-default seat btn-lg btn-block">
+            <td><button type="button" ng-click="doClick(seats.table1.seat2, $event)" class="btn btn-default seat btn-lg btn-block">
               <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
              </button>
              <span class="label label-default">{%seats.table1.seat2.name|| 'loading'%}</span>

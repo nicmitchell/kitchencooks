@@ -10,16 +10,15 @@ var fbHangouts = new Firebase('https://hrr-kitchen-legacy.firebaseio.com/hangout
 var kitchenApp = angular.module('kitchenApp', [
   'ui.bootstrap',
   'ngRoute',
-  'appControllers'
+  'appControllers',
+  'kitchenApp.services'
   ],
-
   function($interpolateProvider) {
     $interpolateProvider.startSymbol('{%');
     $interpolateProvider.endSymbol('%}');
   }
-);
-
-kitchenApp.config(['$routeProvider',
+)
+.config(['$routeProvider',
   function($routeProvider) {
     $routeProvider.
       when('/index', {

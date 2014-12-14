@@ -29,10 +29,14 @@ appControllers.controller('kitchenCtrl', ['$scope', '$cookies', 'TableHelpers',
 
     // Services
     $scope.handleClick = TableHelpers.handleClick;
-    $scope.clearRoom = TableHelpers.clearRoom;
+    $scope.clearRoom = function(){
+      var seating = TableHelpers.clearRoom();
+      console.log('seating from callback', seating);
+      $scope.seats = seating;
+    };
     // not in use
     // $scope.viewThumbs = viewThumbVideos;
-    
+
     $scope.doClick = function(seat, $event) {
       $scope.handleClick(seat, $event, $scope);
     };

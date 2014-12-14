@@ -3,7 +3,10 @@ angular.module('kitchenApp.services', [])
 .factory('TableHelpers', function(){
   var startOrJoinVideo = function(seat, $scope){
 
-    var table = $scope.hangouts[seat.tableNumber];
+    // var table = $scope.hangouts[seat.tableNumber];
+    var table = $scope.seats[seat.tableNumber];
+
+    console.log('scope.seats',$scope.seats[seat.tableNumber]);
 
     //This funcitons is in videoConderence/videoFaces.js
     //It will generate a
@@ -93,7 +96,7 @@ angular.module('kitchenApp.services', [])
         //updates firebase
         fbSeating.set($scope.seats);
 
-        var table = $scope.hangouts[seat.tableNumber];
+        var table = $scope.seats[seat.tableNumber];
 
         table.users--;
 
@@ -111,8 +114,9 @@ angular.module('kitchenApp.services', [])
   // This function clears the seats of all users by setting the firebase database to all empty seats
   // It is called when the clear room button is clicked
   // It has been implemented to aid development but probably should not be included in the final product
-  var clearRoom = function(){
-    console.log('room cleared');
+  var clearRoom = function($scope){
+    // console.log('scope in clear room', $scope.seats);
+    
 
     var hangouts = {
       "table1" : {
@@ -313,7 +317,10 @@ angular.module('kitchenApp.services', [])
     };
 
     fbHangouts.set(hangouts);
-    fbSeating.set(seating);
+    fbSeating.set(seating, function($scope){
+      console.log('room cleared');
+    });
+    return seating;
   };
 
   return {

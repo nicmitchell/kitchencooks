@@ -1,250 +1,331 @@
-//This function decides the outcome when a user "sits down"
-var startOrJoinVideo = function(seat, $scope){
+angular.module('kitchenApp.services', [])
 
-  var table = $scope.hangouts[seat.tableNumber];
+.factory('TableHelpers', function(){
+  var startOrJoinVideo = function(seat, $scope){
 
-  //This funcitons is in videoConderence/videoFaces.js
-  //It will generate a
-  joinThumbVideos(seat.tableNumber);
+    // var table = $scope.hangouts[seat.tableNumber];
+    var table = $scope.seats[seat.tableNumber];
 
-  if (table.users === 0){
+    console.log('scope.seats',$scope.seats[seat.tableNumber]);
 
-    table.users++;
+    //This funcitons is in videoConderence/videoFaces.js
+    //It will generate a
+    joinThumbVideos(seat.tableNumber);
 
-    //modal alert box
-    bootbox.alert("Creating a video group chat! Allow the kitchen app to access your camera.");
-    $(".modal-backdrop").css("z-index", "0");
+    if (table.users === 0){
 
-    //updates model and view with the new seating arrangment
-    $scope.$apply(function(){
-      console.log('SEAT', seat, table);
-      $scope.currentURL = table.url;
-      $scope.currentSeat = seat.tableNumber + ' - ' + seat.seatNumber;
-    });
+      table.users++;
 
-    //call function to start video and store link to it here
-    //should probably be changed so that it is called when "OK" is clicked on the bootbox modal
-    window.open('https://appear.in/hrr-kitchen-'+ seat.tableNumber);
+      //modal alert box
+      bootbox.alert("Creating a video group chat! Allow the kitchen app to access your camera.");
+      $(".modal-backdrop").css("z-index", "0");
 
-    //updates the firebase
-    fbHangouts.set($scope.hangouts);
+      //updates model and view with the new seating arrangment
+      // $scope.$apply(function(){
+        console.log('SEAT', seat, table);
+        $scope.currentURL = table.url;
+        $scope.currentSeat = seat.tableNumber + ' - ' + seat.seatNumber;
+      // });
 
-  }else{
+      //call function to start video and store link to it here
+      //should probably be changed so that it is called when "OK" is clicked on the bootbox modal
+      // window.open('https://appear.in/hrr-kitchen-'+ seat.tableNumber);
 
-    window.open('https://appear.in/hrr-kitchen-'+ seat.tableNumber);
-
-    //modal alert box
-    bootbox.alert('Joining a video chat! Allow the kitchen app to access your camera.');
-    $(".modal-backdrop").css("z-index", "0");
-
-    //updates model and view with the new seating arrangment
-    $scope.$apply(function(){
-      $scope.currentURL = table.url;
-      $scope.currentSeat = seat.tableNumber + ' - ' + seat.seatNumber;
-    });
-
-    fbHangouts.set($scope.hangouts);
-
-  }
-
-};
-
-//This functions decides the outcome when a user clicks on a seat
-var handleClick = function(seat, $event, $scope) {
-
-  $event.preventDefault();
-
-  if (!$scope.satDown){
-
-    if (!seat.taken){
-
-      $scope.currentSeat = seat.seatNumber;
-
-      seat.name = userName;
-      seat.taken = true;
-      $scope.satDown = true;
-
-      fbSeating.set($scope.seats);
-
-      //calls above function
-      startOrJoinVideo(seat, $scope);
+      //updates the firebase
+      fbHangouts.set($scope.hangouts);
 
     }else{
 
-      //modal alert
-      bootbox.alert("Seat already occupied");
+      // window.open('https://appear.in/hrr-kitchen-'+ seat.tableNumber);
+
+      //modal alert box
+      bootbox.alert('Joining a video chat! Allow the kitchen app to access your camera.');
       $(".modal-backdrop").css("z-index", "0");
+
+      //updates model and view with the new seating arrangment
+      // $scope.$apply(function(){
+        $scope.currentURL = table.url;
+        $scope.currentSeat = seat.tableNumber + ' - ' + seat.seatNumber;
+      // });
+
+      fbHangouts.set($scope.hangouts);
 
     }
 
-  }else{
+  };
 
-    if (seat.name === userName){
+  //This functions decides the outcome when a user clicks on a seat
+  var handleClick = function(seat, $event, $scope) {
+    if($event){
+        $event.preventDefault();
+    }
+    if (!$scope || !$scope.satDown){
 
-      seat.name = 'empty';
-      seat.taken = false;
-      $scope.satDown = false;
+      if (seat && !seat.taken){
 
-      $scope.currentSeat = "standing";
-      $scope.currentURL = "No current hangout url";
+        $scope.currentSeat = seat.seatNumber;
 
-      //updates firebase
-      fbSeating.set($scope.seats);
+        seat.name = userName;
+        seat.taken = true;
+        $scope.satDown = true;
 
-      var table = $scope.hangouts[seat.tableNumber];
+        fbSeating.set($scope.seats);
 
-      table.users--;
+        //calls above function
+        startOrJoinVideo(seat, $scope);
 
-      $scope.currentSeat = 'Standing';
+      }else{
+
+        //modal alert
+        bootbox.alert("Seat already occupied");
+        $(".modal-backdrop").css("z-index", "0");
+
+      }
 
     }else{
-      //modal alert
-      bootbox.alert("You're already sat down");
-      $(".modal-backdrop").css("z-index", "0");
 
-    }
-  }
-};
+      if (seat.name === userName){
 
-// This function clears the seats of all users by setting the firebase database to all empty seats
-// It is called when the clear room button is clicked
-// It has been implemented to aid development but probably should not be included in the final product
-var clearRoom = function(){
+        seat.name = 'empty';
+        seat.taken = false;
+        $scope.satDown = false;
 
-  var hangouts = {
-    "table1" : {
-      "users": 0,
-      "message": 0,
-      "url": 0
-    },
-    "table2" : {
-      "users": 0,
-      "message": 0,
-      "url": 0
-    },
-    "table3" : {
-      "users": 0,
-      "message": 0,
-      "url": 0
-    },
-    "table4" : {
-      "users": 0,
-      "message": 0,
-      "url": 0
+        $scope.currentSeat = "standing";
+        $scope.currentURL = "No current hangout url";
+
+        //updates firebase
+        fbSeating.set($scope.seats);
+
+        var table = $scope.seats[seat.tableNumber];
+
+        table.users--;
+
+        $scope.currentSeat = 'Standing';
+
+      }else{
+        //modal alert
+        bootbox.alert("You're already sat down");
+        $(".modal-backdrop").css("z-index", "0");
+
+      }
     }
   };
 
-  var seating = {
-    "table1" : {
-      "seat1" : {
-        "name" : "empty",
-        "seatNumber" : "seat1",
-        "tableNumber" : "table1",
-        "taken" : false
+  // This function clears the seats of all users by setting the firebase database to all empty seats
+  // It is called when the clear room button is clicked
+  // It has been implemented to aid development but probably should not be included in the final product
+  var clearRoom = function($scope){
+    // console.log('scope in clear room', $scope.seats);
+    
+
+    var hangouts = {
+      "table1" : {
+        "users": 0,
+        "message": 0,
+        "url": 0
       },
-      "seat2" : {
-        "name" : "empty",
-        "seatNumber" : "seat2",
-        "tableNumber" : "table1",
-        "taken" : false
+      "table2" : {
+        "users": 0,
+        "message": 0,
+        "url": 0
       },
-      "seat3" : {
-        "name" : "empty",
-        "seatNumber" : "seat3",
-        "tableNumber" : "table1",
-        "taken" : false
+      "table3" : {
+        "users": 0,
+        "message": 0,
+        "url": 0
       },
-      "seat4" : {
-        "name" : "empty",
-        "seatNumber" : "seat4",
-        "tableNumber" : "table1",
-        "taken" : false
+      "table4" : {
+        "users": 0,
+        "message": 0,
+        "url": 0
       },
-      "tableNumber" : "table1"
-    },
-    "table2" : {
-      "seat1" : {
-        "name" : "empty",
-        "seatNumber" : "seat1",
-        "tableNumber" : "table2",
-        "taken" : false
+      "table5" : {
+        "users": 0,
+        "message": 0,
+        "url": 0
       },
-      "seat2" : {
-        "name" : "empty",
-        "seatNumber" : "seat2",
-        "tableNumber" : "table2",
-        "taken" : false
+      "table6" : {
+        "users": 0,
+        "message": 0,
+        "url": 0
+      }
+    };
+
+    var seating = {
+      "table1" : {
+        "seat1" : {
+          "name" : "empty",
+          "seatNumber" : "seat1",
+          "tableNumber" : "table1",
+          "taken" : false
+        },
+        "seat2" : {
+          "name" : "empty",
+          "seatNumber" : "seat2",
+          "tableNumber" : "table1",
+          "taken" : false
+        },
+        "seat3" : {
+          "name" : "empty",
+          "seatNumber" : "seat3",
+          "tableNumber" : "table1",
+          "taken" : false
+        },
+        "seat4" : {
+          "name" : "empty",
+          "seatNumber" : "seat4",
+          "tableNumber" : "table1",
+          "taken" : false
+        },
+        "tableNumber" : "table1"
       },
-      "seat3" : {
-        "name" : "empty",
-        "seatNumber" : "seat3",
-        "tableNumber" : "table2",
-        "taken" : false
+      "table2" : {
+        "seat1" : {
+          "name" : "empty",
+          "seatNumber" : "seat1",
+          "tableNumber" : "table2",
+          "taken" : false
+        },
+        "seat2" : {
+          "name" : "empty",
+          "seatNumber" : "seat2",
+          "tableNumber" : "table2",
+          "taken" : false
+        },
+        "seat3" : {
+          "name" : "empty",
+          "seatNumber" : "seat3",
+          "tableNumber" : "table2",
+          "taken" : false
+        },
+        "seat4" : {
+          "name" : "empty",
+          "seatNumber" : "seat4",
+          "tableNumber" : "table2",
+          "taken" : false
+        },
+        "tableNumber" : "table2"
       },
-      "seat4" : {
-        "name" : "empty",
-        "seatNumber" : "seat4",
-        "tableNumber" : "table2",
-        "taken" : false
+      "table3" : {
+        "seat1" : {
+          "name" : "empty",
+          "seatNumber" : "seat1",
+          "tableNumber" : "table3",
+          "taken" : false
+        },
+        "seat2" : {
+          "name" : "empty",
+          "seatNumber" : "seat2",
+          "tableNumber" : "table3",
+          "taken" : false
+        },
+        "seat3" : {
+          "name" : "empty",
+          "seatNumber" : "seat3",
+          "tableNumber" : "table3",
+          "taken" : false
+        },
+        "seat4" : {
+          "name" : "empty",
+          "seatNumber" : "seat4",
+          "tableNumber" : "table3",
+          "taken" : false
+        },
+        "tableNumber" : "table3"
       },
-      "tableNumber" : "table2"
-    },
-    "table3" : {
-      "seat1" : {
-        "name" : "empty",
-        "seatNumber" : "seat1",
-        "tableNumber" : "table3",
-        "taken" : false
+      "table4" : {
+        "seat1" : {
+          "name" : "empty",
+          "seatNumber" : "seat1",
+          "tableNumber" : "table4",
+          "taken" : false
+        },
+        "seat2" : {
+          "name" : "empty",
+          "seatNumber" : "seat2",
+          "tableNumber" : "table4",
+          "taken" : false
+        },
+        "seat3" : {
+          "name" : "empty",
+          "seatNumber" : "seat3",
+          "tableNumber" : "table4",
+          "taken" : false
+        },
+        "seat4" : {
+          "name" : "empty",
+          "seatNumber" : "seat4",
+          "tableNumber" : "table4",
+          "taken" : false
+        },
+        "tableNumber" : "table4"
       },
-      "seat2" : {
-        "name" : "empty",
-        "seatNumber" : "seat2",
-        "tableNumber" : "table3",
-        "taken" : false
+      "table5" : {
+        "seat1" : {
+          "name" : "empty",
+          "seatNumber" : "seat1",
+          "tableNumber" : "table5",
+          "taken" : false
+        },
+        "seat2" : {
+          "name" : "empty",
+          "seatNumber" : "seat2",
+          "tableNumber" : "table5",
+          "taken" : false
+        },
+        "seat3" : {
+          "name" : "empty",
+          "seatNumber" : "seat3",
+          "tableNumber" : "table5",
+          "taken" : false
+        },
+        "seat4" : {
+          "name" : "empty",
+          "seatNumber" : "seat4",
+          "tableNumber" : "table5",
+          "taken" : false
+        },
+        "tableNumber" : "table5"
       },
-      "seat3" : {
-        "name" : "empty",
-        "seatNumber" : "seat3",
-        "tableNumber" : "table3",
-        "taken" : false
-      },
-      "seat4" : {
-        "name" : "empty",
-        "seatNumber" : "seat4",
-        "tableNumber" : "table3",
-        "taken" : false
-      },
-      "tableNumber" : "table2"
-    },
-    "table4" : {
-      "seat1" : {
-        "name" : "empty",
-        "seatNumber" : "seat1",
-        "tableNumber" : "table4",
-        "taken" : false
-      },
-      "seat2" : {
-        "name" : "empty",
-        "seatNumber" : "seat2",
-        "tableNumber" : "table4",
-        "taken" : false
-      },
-      "seat3" : {
-        "name" : "empty",
-        "seatNumber" : "seat3",
-        "tableNumber" : "table4",
-        "taken" : false
-      },
-      "seat4" : {
-        "name" : "empty",
-        "seatNumber" : "seat4",
-        "tableNumber" : "table4",
-        "taken" : false
-      },
-      "tableNumber" : "table2"
-    }
+      "table6" : {
+        "seat1" : {
+          "name" : "empty",
+          "seatNumber" : "seat1",
+          "tableNumber" : "table6",
+          "taken" : false
+        },
+        "seat2" : {
+          "name" : "empty",
+          "seatNumber" : "seat2",
+          "tableNumber" : "table6",
+          "taken" : false
+        },
+        "seat3" : {
+          "name" : "empty",
+          "seatNumber" : "seat3",
+          "tableNumber" : "table6",
+          "taken" : false
+        },
+        "seat4" : {
+          "name" : "empty",
+          "seatNumber" : "seat4",
+          "tableNumber" : "table6",
+          "taken" : false
+        },
+        "tableNumber" : "table6"
+      }
+    };
+
+    fbHangouts.set(hangouts);
+    fbSeating.set(seating, function($scope){
+      console.log('room cleared');
+    });
+    return seating;
   };
 
-  fbHangouts.set(hangouts);
-  fbSeating.set(seating);
-};
+  return {
+    startOrJoinVideo: startOrJoinVideo,
+    handleClick: handleClick,
+    clearRoom: clearRoom
+  };
+});

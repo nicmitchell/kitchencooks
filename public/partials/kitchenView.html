@@ -1,6 +1,17 @@
+<!-- thumbnail videos view -->
+  <div class = "container col-md-12">
+    <div class="boxCommon panel">
+        <video id="box0" class="col-md-6 boxCommon thumbCommon easyRTCMirror" muted="muted" volume="0" ></video>
+        <video id="box1" class="col-md-6 boxCommon thumbCommon" muted="muted" volume="0"></video>
+        <video id="box2" class="col-md-6 boxCommon thumbCommon" muted="muted" volume="0"></video>
+        <video id="box3" class="col-md-6 boxCommon thumbCommon" muted="muted" volume="0"></video>
+    </div>
+  </div>
+
+
 <!-- This view file shows the kitchen and thumbs videos to the user -->
 
-<div class="well text-center">
+<div class="well text-center" onload="roomInit()">
   <div class="row">
     <div class="col-sm-4">
       <table class="table">
@@ -11,12 +22,12 @@
         </thead>
         <tbody>
           <tr>
-            <td><button  type="button" ng-click="doClick(seats.table1.seat1, $event)" class="btn btn-default seat btn-lg btn-block">
+            <td><button type="button" ng-click="doClick(seats.table1.seat1, $event)" class="btn btn-default seat btn-lg btn-block">
               <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
              </button>
              <span class="label label-default">{%seats.table1.seat1.name|| 'loading'%}</span>
              </td>
-            <td><button  type="button" ng-click="doClick(seats.table1.seat2, $event)" class="btn btn-default seat btn-lg btn-block">
+            <td><button type="button" ng-click="doClick(seats.table1.seat2, $event)" class="btn btn-default seat btn-lg btn-block">
               <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
              </button>
              <span class="label label-default">{%seats.table1.seat2.name|| 'loading'%}</span>
@@ -214,7 +225,7 @@
 </div>
 
 <!-- Kitchen tables and seats view -->
-  <div class="panel panel-default container col-md-6">
+  <div class="panel panel-default container col-md-6" ng-controller="kitchenCtrl">
       <div class="well well-sm urlbar">
       <div>{% currentSeat %}</div>
       <div>URL: {% currentURL %}</div>
@@ -223,14 +234,14 @@
   </div>
 
 <!-- thumbnail videos view -->
-  <div class = "container col-md-6">
+<!--   <div class = "container col-md-6">
     <div class="boxCommon panel">
         <video id="box0" class="col-md-6 boxCommon thumbCommon easyRTCMirror" muted="muted" volume="0" ></video>
         <video id="box1" class="col-md-6 boxCommon thumbCommon" muted="muted" volume="0"></video>
         <video id="box2" class="col-md-6 boxCommon thumbCommon" muted="muted" volume="0"></video>
         <video id="box3" class="col-md-6 boxCommon thumbCommon" muted="muted" volume="0"></video>
     </div>
-  </div>
+  </div> -->
 
 
 

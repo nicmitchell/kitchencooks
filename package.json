@@ -30,12 +30,19 @@
     "passport-local": "^1.0.0"
   },
   "devDependencies": {
+    "chai": "^1.10.0",
     "grunt": "~0.4.5",
     "grunt-contrib-concat": "~0.5.0",
     "grunt-contrib-jshint": "~0.10.0",
     "grunt-contrib-uglify": "~0.6.0",
     "grunt-contrib-watch": "~0.6.1",
-    "karma": "^0.12.28"
+    "karma": "^0.12.28",
+    "karma-chai": "^0.1.0",
+    "karma-chrome-launcher": "^0.1.7",
+    "karma-mocha": "^0.1.10",
+    "karma-sinon": "^1.0.4",
+    "mocha": "^2.0.1",
+    "sinon": "^1.12.2"
   },
   "keywords": [
     "chat",

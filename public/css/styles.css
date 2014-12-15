@@ -64,14 +64,23 @@ li.avatar {
   padding-top: 5px;
 }
 
-/*#killButton {
-    opacity:0.7;
+/* Hack to hide 5th seat at table */
+.col-sm-4.well div:nth-child(5) {
+    display: none;
 }
 
-#killButton:hover {
-    opacity:1.0;
+.select-tablecloth.col-sm-12 {
+    margin-bottom: 10px;
 }
-*/
+
+.seat {
+  margin-bottom: 30px;
+}
+
+.seat button {
+  margin-bottom: 10px;
+}
+
 
 /*
 .bootbox {

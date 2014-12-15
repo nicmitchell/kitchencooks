@@ -8,21 +8,29 @@
     </div>
   </div>
 
-  <tbody ng-controller="kitchenCtrl">  
-    <li ng-repeat="seat in seats">{% seat.seat1.name|json %}</li>
+  
+  <div ng-repeat="table in seats" class="well text-center col-sm-4">
+    <div ng-style="tableCloth">
+      <div ng-repeat="seat in table" class="col-sm-6 seat {% seat.seatNumber %}">
+        <button type="button" ng-click="doClick(table.tableNumber, $event)" class="btn btn-default btn-lg btn-block">
+        <span ng-show="seat.name === 'empty' " class="glyphicon glyphicon-user" aria-hidden="true"></span>
+        <img ng-show="seat.name !== 'empty' " ng-src="{% seat.avatar %}&s=40" aria-hidden="true">
+        </button>
+        <span class="label label-default">{% seat.name %}</span>
+      </div>
+    </div>
+    <div class="select-tablecloth col-sm-12">
+      <span class="label label-primary" ng-click="chooseCloth('blue')">Blue</span>
+      <span class="label label-success" ng-click="chooseCloth('green')">Green</span>
+      <span class="label label-warning" ng-click="chooseCloth('orange')">Orange</span>
+      <span class="label label-danger" ng-click="chooseCloth('red')">Red</span>
+    </div>
+  </div>
 
-
-      <td><button type="button" ng-click="doClick(seats.table1.seat1, $event)" class="btn btn-default seat btn-lg btn-block">
-        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-       </button>
-       <!-- <span class="label label-default">{% seat.seat1.name|json || 'loading'%}</span> -->
-       </td>
-    </tr>
-  </tbody>
 
 
 <!-- This view file shows the kitchen and thumbs videos to the user -->
-
+<!--
 <div class="well text-center">
   <div class="row">
     <div class="col-sm-4 well" ng-style="tableCloth">
@@ -310,7 +318,7 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
 
   <button ng-click="clearRoom()" class="btn btn-danger seat">Clear Room</button>
 

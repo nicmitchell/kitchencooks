@@ -54,7 +54,8 @@
       <div class="container">
         <div class="jumbotron">
           <h1>Hello, {{ user.displayName }} </h1>
-          <p>Welcome to the {{ title }}</p>
+          <p>Welcome to {{title}}, play some background music?</p>
+          <audio src="sounds/358232_j_s_song.ogg" controls volume="0.25"></audio>
         </div>
         <div ng-view></div>
         <!-- <div class='chat-div' ng-include="'partials/chat-bar.html'"></div> -->

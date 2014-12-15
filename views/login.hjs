@@ -1,3 +1,75 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Kitchen App">
+    <meta name="author" content="Hack Reactor">
+
+    <title>Cover Template for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+
+    <!-- Custom styles for this template -->
+    <link rel='stylesheet' href='/css/styles.css'/>
+    <link rel='stylesheet' href='/css/cover.css'/>
+  </head>
+
+  <body>
+
+    <div class="site-wrapper">
+
+      <div class="site-wrapper-inner">
+
+        <div class="cover-container">
+
+          <div class="masthead clearfix">
+            <div class="inner">
+              <h3 class="masthead-brand">Hack Reactor</h3>
+<!--               <nav>
+                <ul class="nav masthead-nav">
+                  <li class="active"><a href="#">Home</a></li>
+                  <li><a href="#">Features</a></li>
+                  <li><a href="#">Contact</a></li>
+                </ul>
+              </nav> -->
+            </div>
+          </div>
+
+          <div class="inner cover">
+            <h1 class="cover-heading">The Kitchen</h1>
+            <p class="lead">Socialize with other remote student during your breaks.</p>
+            <p class="lead">
+              <a href="/auth/github" class="btn btn-lg btn-default">Log In with Github <span class="sr-only">(current)</span></a>
+            </p>
+          </div>
+
+          <div class="mastfoot">
+            <div class="inner">
+              <p>HRR2 <a href="https://github.com/Green-Snake-Platinum-Kangaroo/kitchencooks">Legacy Project</a>, by <a href="https://github.com/Green-Snake-Platinum-Kangaroo/">Green Snake Platinum Kangaroo</a>.</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  </body>
+</html>
+
+
+
+<!--
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,6 +81,6 @@
 <body>
   <h1>Login</h1>
 
-  <button><a href="/auth/github">Log In with Github <span class="sr-only">(current)</span></a></button>
+  <button class="btn btn-default"></button>
 </body>
-</html>
+</html> -->

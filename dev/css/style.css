@@ -1,8 +1,7 @@
 /* from style.css */
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  margin: 0;
+  margin: 0px;
 }
 
 a {
@@ -54,6 +53,10 @@ video.thumbCommon{
   height: auto !important;
   top: 0 !important;
   left: 0 !important;
+}
+
+li.avatar {
+  padding-top: 5px;
 }
 
 /*#killButton {

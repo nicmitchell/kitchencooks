@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html ng-app="kitchenApp">
-  <head >
+  <head>
     <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
     <title>{{ title }}</title>
 
@@ -15,12 +15,12 @@
     <script src="/socket.io/socket.io.js"></script>
     <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.12.0.js"></script>
     <script src = "bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="https://cdn.firebase.com/libs/angularfire/0.9.0/angularfire.min.js"></script>
 
     <!-- easyrtc (below) installed in a hacky way -->
     <script src="js/easyrtc.js"></script>
     <script src="js/videoFaces.js"></script>
     <script src="js/bootbox.js"></script>
-    <!-- <script src="js/demo_multiparty.js"></script> -->
     <!-- load main application file -->
     <script src="/js/app.min.js"></script>
     <script>

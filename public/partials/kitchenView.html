@@ -8,10 +8,22 @@
     </div>
   </div>
 
+  <tbody ng-controller="kitchenCtrl">  
+    <li ng-repeat="seat in seats">{% seat.seat1.name|json %}</li>
+
+
+      <td><button type="button" ng-click="doClick(seats.table1.seat1, $event)" class="btn btn-default seat btn-lg btn-block">
+        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+       </button>
+       <!-- <span class="label label-default">{% seat.seat1.name|json || 'loading'%}</span> -->
+       </td>
+    </tr>
+  </tbody>
+
 
 <!-- This view file shows the kitchen and thumbs videos to the user -->
 
-<div class="well text-center" onload="roomInit()">
+<div class="well text-center">
   <div class="row">
     <div class="col-sm-4">
       <table class="table">
@@ -20,7 +32,7 @@
             <th><span class="label label-primary" ng-click="viewThumbs('table1')">Table 1</span></th>
           </tr>
         </thead>
-        <tbody>
+        <tbody>      
           <tr>
             <td><button type="button" ng-click="doClick(seats.table1.seat1, $event)" class="btn btn-default seat btn-lg btn-block">
               <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
@@ -225,7 +237,7 @@
 </div>
 
 <!-- Kitchen tables and seats view -->
-  <div class="panel panel-default container col-md-6" ng-controller="kitchenCtrl">
+  <div class="panel panel-default container col-md-6">
       <div class="well well-sm urlbar">
       <div>{% currentSeat %}</div>
       <div>URL: {% currentURL %}</div>

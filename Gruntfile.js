@@ -42,7 +42,7 @@ module.exports = function(grunt){
     },
     watch: {
       dev: {
-        files: ['dev/js/*.js', 'dev/css/*.css'],
+        files: ['dev/js/angularUI/*.js', 'dev/css/*.css'],
         tasks: ['default'],
       },
     }

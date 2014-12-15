@@ -317,10 +317,10 @@ angular.module('kitchenApp.services', [])
     };
 
     fbHangouts.set(hangouts);
-    fbSeating.set(seating, function($scope){
+    return fbSeating.set(seating, function($scope){
       console.log('room cleared');
+      return seating;
     });
-    return seating;
   };
 
   return {

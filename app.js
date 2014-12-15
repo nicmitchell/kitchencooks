@@ -1,15 +1,15 @@
-var express = require('express');
-var path = require('path');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-var http    = require("http");              // http server core module
-var io      = require("socket.io");         // web socket external module
-var easyrtc = require("easyrtc");           // EasyRTC external module
-var methodOverride = require('method-override'); // method-override core module
-var passport = require('passport'); // passport core module for authentication
-var GitHubStrategy = require('passport-github').Strategy; // passport-github module for authentication
-var session = require('express-session'); // express-session for session saving
+var express        = require('express'),
+    path           = require('path'),
+    logger         = require('morgan'),
+    cookieParser   = require('cookie-parser'),
+    bodyParser     = require('body-parser'),
+    http           = require("http");                     // http server core modul,
+    io             = require("socket.io");                // web socket external modul,
+    easyrtc        = require("easyrtc");                  // EasyRTC external modul,
+    methodOverride = require('method-override');          // method-override core modul,
+    passport       = require('passport');                 // passport core module for authenticatio,
+    GitHubStrategy = require('passport-github').Strategy; // passport-github module for authenticatio,
+    session        = require('express-session');          // express-session for session saving
 
 if(process.env.GITHUB_CLIENT_ID && process.env.GITHUB_CLIENT_SECRET){
   var GITHUB_CLIENT_ID = process.env.GITHUB_CLIENT_ID;
@@ -100,7 +100,7 @@ app.get('/auth/github/callback',
     console.log('Callback: ', req.user);
      res.cookie('user', req.user.displayName);
     res.redirect('/');
-  });
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

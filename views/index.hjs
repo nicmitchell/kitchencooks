@@ -6,11 +6,14 @@
 
     <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel='stylesheet' href='/css/styles.css'/>
+    <link rel='stylesheet' href='/css/footer.css'/>
 
     <script src="/bower_components/firebase/firebase.js"></script>
     <script src="/bower_components/jquery/dist/jquery.min.js"></script>
     <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="/bower_components/angular/angular.min.js"></script>
+    <!-- <script src="/bower_components/angularfire/dist/angularfire.min.js"></script> -->
+    <!-- <script src="https://cdn.firebase.com/js/client/2.0.4/firebase.js"></script> -->
     <script src="/bower_components/angular-route/angular-route.min.js"></script>
     <script src="/socket.io/socket.io.js"></script>
     <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.12.0.js"></script>
@@ -43,8 +46,11 @@
             <a class="navbar-brand" href="/">Kitchen App</a>
           </div>
           <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav ">
+              <li><a href="/#/admin">Add Topic</a></li>
+            </ul>
             <ul class="nav navbar-nav navbar-right">
-              <li class="avatar"><img src="{{user._json.avatar_url}}&s=40" alt="">{{ user.displayName }}</li>
+              <li><img class="avatar" src="{{user._json.avatar_url}}&s=40" alt="">{{ user.displayName }}</li>
               <li><a href="/logout">Log Out</a></li>
             </ul>
           </div><!--/.nav-collapse -->
@@ -54,14 +60,16 @@
       <div class="container">
         <div class="jumbotron">
           <p>Discussion topic today:</p>
-          <h2 class="text-center">Why do you join Hack Reactor</h2>
+          <h2 class="text-center">Why do you join Hack Reactor?</h2>
         </div>
         <div ng-view></div>
         <!-- <div class='chat-div' ng-include="'partials/chat-bar.html'"></div> -->
-        <div class="pull-right">
-          <p class="small text-muted">play some background music?</p>
-          <audio src="sounds/358232_j_s_song.ogg" controls volume="0.25"></audio>
-        </div>
       </div>
+    <footer class="footer">
+      <div class="container">
+        <p class="small text-muted pull-left">play some background music?</p>
+        <audio class="pull-right" src="sounds/358232_j_s_song.ogg" controls volume="0.25"></audio>
+      </div>
+    </footer>
   </body>
 </html>

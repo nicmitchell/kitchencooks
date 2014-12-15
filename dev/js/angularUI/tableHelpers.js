@@ -329,4 +329,32 @@ angular.module('kitchenApp.services', [])
     handleClick: handleClick,
     clearRoom: clearRoom
   };
+})
+.factory('topicsStorage', function(){
+  var fbTopics = new Firebase('https://hrr-kitchen-legacy.firebaseio.com/topics');
+
+  // create an AngularFire reference to the data
+  // var sync = $firebase(ref);
+
+ // download the data into a local object
+  // $scope.data = sync.$asObject();
+
+  var topics = [
+    {text: "Why hack reactor?"},
+    {text: "What is your favourate framework?"}
+    ];
+
+  return {
+    getTopics: function(){
+      fbTopics.on('child_added', function(snapshot) {
+        var topic = snapshot.val();
+        topics.push(topic);
+      });
+      return topics;
+    },
+    addTopics: function(topic){
+      fbTopics.push({text: topic});
+      // topics.push(topic);
+    }
+  };
 });

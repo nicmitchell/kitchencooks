@@ -13,7 +13,7 @@
 
 <div class="text-center" onload="roomInit()">
   <div class="row">
-    <div class="col-sm-4 well ">
+    <div class="col-sm-4 well" ng-style="tableCloth">
       <table class="table">
         <thead>
           <tr>
@@ -21,11 +21,10 @@
           </tr>
         </thead>
         <tfoot>
-          <span class="label label-primary" ngclick="chooseCloth('blue')">Blue</span>
-          <span class="label label-success" ngclick="chooseCloth('green')">Green</span>
-          <span class="label label-info" ngclick="chooseCloth('light blue')">Light Blue</span>
-          <span class="label label-warning" ngclick="chooseCloth('orange')">Orange</span>
-          <span class="label label-danger" ngclick="chooseCloth('red')">Red</span>
+          <span class="label label-primary" ng-click="chooseCloth('blue')">Blue</span>
+          <span class="label label-success" ng-click="chooseCloth('green')">Green</span>
+          <span class="label label-warning" ng-click="chooseCloth('orange')">Orange</span>
+          <span class="label label-danger" ng-click="chooseCloth('red')">Red</span>
         </tfoot>
         <tbody>
           <tr>

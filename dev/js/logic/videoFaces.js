@@ -67,7 +67,7 @@ function joinThumbVideos(table) {
     easyrtc.joinRoom(table, null, null, null);
 
 
-    easyrtc.enableAudio(false);
+    easyrtc.enableAudio(true);
 
     easyrtc.setRoomOccupantListener(callEverybodyElse);
     easyrtc.easyApp("easyrtc.multiparty", "box0", ["box1", "box2", "box3"], loginSuccess); //sets up multiparty video links

@@ -1,24 +1,26 @@
-var express = require('express');
-var path = require('path');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-var http    = require("http");              // http server core module
-var io      = require("socket.io");         // web socket external module
-var easyrtc = require("easyrtc");           // EasyRTC external module
-var methodOverride = require('method-override'); // method-override core module
-var passport = require('passport'); // passport core module for authentication
-var GitHubStrategy = require('passport-github').Strategy; // passport-github module for authentication
-var session = require('express-session'); // express-session for session saving
+var express        = require('express'),
+    path           = require('path'),
+    logger         = require('morgan'),
+    cookieParser   = require('cookie-parser'),
+    bodyParser     = require('body-parser'),
+    http           = require("http");                     // http server core modul,
+    io             = require("socket.io");                // web socket external modul,
+    easyrtc        = require("easyrtc");                  // EasyRTC external modul,
+    methodOverride = require('method-override');          // method-override core modul,
+    passport       = require('passport');                 // passport core module for authenticatio,
+    GitHubStrategy = require('passport-github').Strategy; // passport-github module for authenticatio,
+    session        = require('express-session');          // express-session for session saving
+
+var GITHUB_CLIENT_ID, GITHUB_CLIENT_SECRET;
 
 if(process.env.GITHUB_CLIENT_ID && process.env.GITHUB_CLIENT_SECRET){
-  var GITHUB_CLIENT_ID = process.env.GITHUB_CLIENT_ID;
-  var GITHUB_CLIENT_SECRET = process.env.GITHUB_CLIENT_SECRET;
+  GITHUB_CLIENT_ID = process.env.GITHUB_CLIENT_ID;
+  GITHUB_CLIENT_SECRET = process.env.GITHUB_CLIENT_SECRET;
   console.log('Using Github ENV vars');
 } else {
-  var githubKeys = require('./github-keys');
-  var GITHUB_CLIENT_ID = githubKeys.client.clientId;
-  var GITHUB_CLIENT_SECRET = githubKeys.client.clientSecret;
+  var ithubKeys = require('./github-keys');
+  GITHUB_CLIENT_ID = githubKeys.client.clientId;
+  GITHUB_CLIENT_SECRET = githubKeys.client.clientSecret;
   console.log('Using github-keys module');
 }
 
@@ -72,7 +74,7 @@ passport.deserializeUser(function(user, done) {
 app.get('/', function(req, res){
   if (req.user) {
     console.log(req.user);
-  res.render('index', { user: req.user, title: 'Kitchen' });
+    res.render('index', { user: req.user, title: 'Kitchen' });
   } else {
     res.redirect('/login');
   }
@@ -100,7 +102,7 @@ app.get('/auth/github/callback',
     console.log('Callback: ', req.user);
      res.cookie('user', req.user.displayName);
     res.redirect('/');
-  });
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

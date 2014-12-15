@@ -70,12 +70,14 @@ passport.deserializeUser(function(user, done) {
 });
 
 app.get('/', function(req, res){
-  if (req.user) {
-    console.log(req.user);
+  // if (req.user) {
+  //   console.log(req.user);
+  // res.render('index', { user: req.user, title: 'Kitchen' });
+  // } else {
+  //   res.redirect('/login');
+  // }
+  if (req.user) console.log(req.user);
   res.render('index', { user: req.user, title: 'Kitchen' });
-  } else {
-    res.redirect('/login');
-  }
 });
 
 app.get('/login', function(req, res){

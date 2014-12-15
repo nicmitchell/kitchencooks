@@ -44,7 +44,7 @@
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
-              <li class="avatar"><img src="{{user._json.avatar_url}}&s=40" alt=""></li>
+              <li class="avatar"><img src="{{user._json.avatar_url}}&s=40" alt="">{{ user.displayName }}</li>
               <li><a href="/logout">Log Out</a></li>
             </ul>
           </div><!--/.nav-collapse -->
@@ -53,11 +53,15 @@
 
       <div class="container">
         <div class="jumbotron">
-          <h1>Hello, {{ user.displayName }} </h1>
-          <p>Welcome to the {{ title }}</p>
+          <p>Discussion topic today:</p>
+          <h2 class="text-center">Why do you join Hack Reactor</h2>
         </div>
         <div ng-view></div>
         <!-- <div class='chat-div' ng-include="'partials/chat-bar.html'"></div> -->
+        <div class="pull-right">
+          <p class="small text-muted">play some background music?</p>
+          <audio src="sounds/358232_j_s_song.ogg" controls volume="0.25"></audio>
+        </div>
       </div>
   </body>
 </html>

@@ -66,6 +66,7 @@ angular.module('kitchenApp.services', [])
         $scope.currentSeat = seat.seatNumber;
 
         seat.name = userName;
+        seat.avatar = avatar || '';
         seat.taken = true;
         $scope.satDown = true;
 

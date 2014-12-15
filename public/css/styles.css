@@ -46,6 +46,11 @@ a {
     background-color: #ff8000;
 }
 
+.avatar {
+  border: 1px solid black;
+  margin-top: 5px;
+}
+
 /* Video Streams */
 video.thumbCommon{
   max-width: 567px;

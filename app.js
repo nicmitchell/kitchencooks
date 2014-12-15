@@ -11,16 +11,14 @@ var express        = require('express'),
     GitHubStrategy = require('passport-github').Strategy; // passport-github module for authenticatio,
     session        = require('express-session');          // express-session for session saving
 
-var GITHUB_CLIENT_ID, GITHUB_CLIENT_SECRET;
-
 if(process.env.GITHUB_CLIENT_ID && process.env.GITHUB_CLIENT_SECRET){
-  GITHUB_CLIENT_ID = process.env.GITHUB_CLIENT_ID;
-  GITHUB_CLIENT_SECRET = process.env.GITHUB_CLIENT_SECRET;
+  var GITHUB_CLIENT_ID = process.env.GITHUB_CLIENT_ID;
+  var GITHUB_CLIENT_SECRET = process.env.GITHUB_CLIENT_SECRET;
   console.log('Using Github ENV vars');
 } else {
-  var ithubKeys = require('./github-keys');
-  GITHUB_CLIENT_ID = githubKeys.client.clientId;
-  GITHUB_CLIENT_SECRET = githubKeys.client.clientSecret;
+  var githubKeys = require('./github-keys');
+  var GITHUB_CLIENT_ID = githubKeys.client.clientId;
+  var GITHUB_CLIENT_SECRET = githubKeys.client.clientSecret;
   console.log('Using github-keys module');
 }
 

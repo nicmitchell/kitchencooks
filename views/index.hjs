@@ -54,7 +54,7 @@
       <div class="container">
         <div class="jumbotron">
           <h1>Hello, {{ user.displayName }} </h1>
-          <p>Play some background music?</p>
+          <p>Welcome to {{title}}, play some background music?</p>
           <audio src="sounds/358232_j_s_song.ogg" controls volume="0.25"></audio>
         </div>
         <div ng-view></div>

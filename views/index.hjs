@@ -44,7 +44,7 @@
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
-              <li class="avatar"><img src="{{user._json.avatar_url}}&s=40" alt="">{{ user.displayName }}</li>
+              <li><img class="avatar" src="{{user._json.avatar_url}}&s=40" alt="">{{ user.displayName }}</li>
               <li><a href="/logout">Log Out</a></li>
             </ul>
           </div><!--/.nav-collapse -->

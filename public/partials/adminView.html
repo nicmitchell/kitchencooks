@@ -1,12 +1,12 @@
 <h3>Add new topic</h3>
 <div class="input-group">
-  <input type="text" class="form-control">
+  <input type="text" class="form-control" ng-model="newTopic">
   <span class="input-group-btn">
-    <button class="btn btn-default" type="button">Go!</button>
+    <button class="btn btn-default" type="button" ng-click="saveTopic()">Save</button>
   </span>
 </div>
 <hr>
 <h3>Existing Topics</h3>
-<ul>
+<ul ng-repeat="topic in topics">
   <li>{% topic %}</li>
 </ul>

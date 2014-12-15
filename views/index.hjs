@@ -55,12 +55,13 @@
         <div class="jumbotron">
           <p>Discussion topic today:</p>
           <h2 class="text-center">Why do you join Hack Reactor</h2>
-          <br>
-          <audio src="sounds/358232_j_s_song.ogg" controls volume="0.25"></audio>
-          <p class="small pull-right">play some background music?</p>
         </div>
         <div ng-view></div>
         <!-- <div class='chat-div' ng-include="'partials/chat-bar.html'"></div> -->
+        <div class="pull-right">
+          <p class="small text-muted">play some background music?</p>
+          <audio src="sounds/358232_j_s_song.ogg" controls volume="0.25"></audio>
+        </div>
       </div>
   </body>
 </html>

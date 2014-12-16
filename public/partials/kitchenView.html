@@ -1,31 +1,39 @@
-<!-- thumbnail videos view -->
-  <div class = "container col-md-12">
-    <div class="boxCommon panel">
-        <video id="box0" class="col-md-6 boxCommon thumbCommon easyRTCMirror" muted="muted" volume="0" controls></video>
-        <video id="box1" class="col-md-6 boxCommon thumbCommon" volume="0.5" controls></video>
-        <video id="box2" class="col-md-6 boxCommon thumbCommon" volume="0.5" controls></video>
-        <video id="box3" class="col-md-6 boxCommon thumbCommon" volume="0.5" controls></video>
-    </div>
+<div class="container">
+  <div class="jumbotron">
+    <p class="small text-muted">Discussion topic today:</p>
+    <h2 class="text-center">{% topic() %}</h2>
   </div>
+</div>
 
-  
-  <div ng-repeat="table in seats" class="well text-center col-sm-4">
-    <div ng-style="tableCloth">
-      <div ng-repeat="seat in table" class="col-sm-6 seat {% seat.seatNumber %}">
-        <button type="button" ng-click="doClick(seat.seatNumber, seat.tableNumber, $event)" class="btn btn-default btn-lg btn-block">
-        <span ng-show="seat.name === 'empty' " class="glyphicon glyphicon-user" aria-hidden="true"></span>
-        <img ng-show="seat.name !== 'empty' " ng-src="{% seat.avatar %}&s=40" aria-hidden="true">
-        </button>
-        <span class="label label-default">{% seat.name %}</span>
-      </div>
-    </div>
-    <div class="select-tablecloth col-sm-12">
-      <span class="label label-primary" ng-click="chooseCloth('blue')">Blue</span>
-      <span class="label label-success" ng-click="chooseCloth('green')">Green</span>
-      <span class="label label-warning" ng-click="chooseCloth('orange')">Orange</span>
-      <span class="label label-danger" ng-click="chooseCloth('red')">Red</span>
+
+<!-- thumbnail videos view -->
+<div class = "container col-md-12">
+  <div class="boxCommon panel">
+      <video id="box0" class="col-md-6 boxCommon thumbCommon easyRTCMirror" muted="muted" volume="0" controls></video>
+      <video id="box1" class="col-md-6 boxCommon thumbCommon" volume="0.5" controls></video>
+      <video id="box2" class="col-md-6 boxCommon thumbCommon" volume="0.5" controls></video>
+      <video id="box3" class="col-md-6 boxCommon thumbCommon" volume="0.5" controls></video>
+  </div>
+</div>
+
+<!-- tables -->
+<div ng-repeat="table in seats" class="well text-center col-sm-4">
+  <div ng-style="tableCloth">
+    <div ng-repeat="seat in table" class="col-sm-6 seat {% seat.seatNumber %}">
+      <button type="button" ng-click="doClick(seat.seatNumber, seat.tableNumber, $event)" class="btn btn-default btn-lg btn-block">
+      <span ng-show="seat.name === 'empty' " class="glyphicon glyphicon-user" aria-hidden="true"></span>
+      <img ng-show="seat.name !== 'empty' " ng-src="{% seat.avatar %}&s=40" aria-hidden="true">
+      </button>
+      <span class="label label-default">{% seat.name %}</span>
     </div>
   </div>
+  <div class="select-tablecloth col-sm-12">
+    <span class="label label-primary" ng-click="chooseCloth('blue')">Blue</span>
+    <span class="label label-success" ng-click="chooseCloth('green')">Green</span>
+    <span class="label label-warning" ng-click="chooseCloth('orange')">Orange</span>
+    <span class="label label-danger" ng-click="chooseCloth('red')">Red</span>
+  </div>
+</div>
 
 
 
@@ -121,10 +129,10 @@
         </tbody>
       </table>
       <div ng-hide="selectedSeat">
-        <span class="label label-primary" ng-click="chooseCloth('blue')">Blue</span>
-        <span class="label label-success" ng-click="chooseCloth('green')">Green</span>
-        <span class="label label-warning" ng-click="chooseCloth('orange')">Orange</span>
-        <span class="label label-danger" ng-click="chooseCloth('red')">Red</span>
+        <span class="label label-primary" ng-click="chooseCloth2('blue')">Blue</span>
+        <span class="label label-success" ng-click="chooseCloth2('green')">Green</span>
+        <span class="label label-warning" ng-click="chooseCloth2('orange')">Orange</span>
+        <span class="label label-danger" ng-click="chooseCloth2('red')">Red</span>
       </div>
     </div>
     <div class="col-sm-4 well" ng-style="tableCloth3">
@@ -168,10 +176,10 @@
         </tbody>
       </table>
       <div ng-hide="selectedSeat">
-        <span class="label label-primary" ng-click="chooseCloth('blue')">Blue</span>
-        <span class="label label-success" ng-click="chooseCloth('green')">Green</span>
-        <span class="label label-warning" ng-click="chooseCloth('orange')">Orange</span>
-        <span class="label label-danger" ng-click="chooseCloth('red')">Red</span>
+        <span class="label label-primary" ng-click="chooseCloth3('blue')">Blue</span>
+        <span class="label label-success" ng-click="chooseCloth3('green')">Green</span>
+        <span class="label label-warning" ng-click="chooseCloth3('orange')">Orange</span>
+        <span class="label label-danger" ng-click="chooseCloth3('red')">Red</span>
       </div>
     </div>
   </div>
@@ -217,10 +225,10 @@
         </tbody>
       </table>
       <div ng-hide="selectedSeat">
-        <span class="label label-primary" ng-click="chooseCloth('blue')">Blue</span>
-        <span class="label label-success" ng-click="chooseCloth('green')">Green</span>
-        <span class="label label-warning" ng-click="chooseCloth('orange')">Orange</span>
-        <span class="label label-danger" ng-click="chooseCloth('red')">Red</span>
+        <span class="label label-primary" ng-click="chooseCloth4('blue')">Blue</span>
+        <span class="label label-success" ng-click="chooseCloth4('green')">Green</span>
+        <span class="label label-warning" ng-click="chooseCloth4('orange')">Orange</span>
+        <span class="label label-danger" ng-click="chooseCloth4('red')">Red</span>
       </div>
     </div>
     <div class="col-sm-4 well " ng-style="tableCloth5">
@@ -264,10 +272,10 @@
         </tbody>
       </table>
       <div ng-hide="selectedSeat">
-        <span class="label label-primary" ng-click="chooseCloth('blue')">Blue</span>
-        <span class="label label-success" ng-click="chooseCloth('green')">Green</span>
-        <span class="label label-warning" ng-click="chooseCloth('orange')">Orange</span>
-        <span class="label label-danger" ng-click="chooseCloth('red')">Red</span>
+        <span class="label label-primary" ng-click="chooseCloth5('blue')">Blue</span>
+        <span class="label label-success" ng-click="chooseCloth5('green')">Green</span>
+        <span class="label label-warning" ng-click="chooseCloth5('orange')">Orange</span>
+        <span class="label label-danger" ng-click="chooseCloth5('red')">Red</span>
       </div>
     </div>
     <div class="col-sm-4 well " ng-style="tableCloth6">
@@ -311,10 +319,10 @@
         </tbody>
       </table>
       <div ng-hide="selectedSeat">
-        <span class="label label-primary" ng-click="chooseCloth('blue')">Blue</span>
-        <span class="label label-success" ng-click="chooseCloth('green')">Green</span>
-        <span class="label label-warning" ng-click="chooseCloth('orange')">Orange</span>
-        <span class="label label-danger" ng-click="chooseCloth('red')">Red</span>
+        <span class="label label-primary" ng-click="chooseCloth6('blue')">Blue</span>
+        <span class="label label-success" ng-click="chooseCloth6('green')">Green</span>
+        <span class="label label-warning" ng-click="chooseCloth6('orange')">Orange</span>
+        <span class="label label-danger" ng-click="chooseCloth6('red')">Red</span>
       </div>
     </div>
   </div>

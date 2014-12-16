@@ -64,8 +64,8 @@ li.avatar {
   padding-top: 5px;
 }
 
-/* Hack to hide 5th seat at table */
-.col-sm-4.well div:nth-child(5) {
+/* Really bad hack to hide 5th and 6th seat at table */
+.well.col-sm-4 .seat:nth-of-type(5), .well.col-sm-4 .seat:nth-of-type(6) {
     display: none;
 }
 

@@ -1,12 +1,22 @@
+<div class="container">
+  <div class="jumbotron">
+    <p class="small text-muted">Discussion topic today:</p>
+    <h2 class="text-center">{%topic()%}</h2>
+  </div>
+</div>
+
 <h3>Add new topic</h3>
 <div class="input-group">
-  <input type="text" class="form-control" ng-model="newTopic">
+  <input type="text" class="form-control input-lg" ng-model="newTopic" placeholder="Why do you hate BackBone?">
   <span class="input-group-btn">
-    <button class="btn btn-default" type="button" ng-click="saveTopic()">Save</button>
+    <button class="btn btn-default btn-lg" type="button" ng-click="saveTopic()">Save</button>
   </span>
 </div>
 <hr>
 <h3>Existing Topics</h3>
-<ul class="list-group" ng-repeat="topic in topics">
-  <li class="list-group-item">{% topic.text %}</li>
+<ul class="list-group">
+  <li ng-repeat="topic in topics" class="list-group-item">
+    <span ng-click="setTopic(topic.text)" class="badge">Set topic</span>
+    {% topic.text %}
+  </li>
 </ul>

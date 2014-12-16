@@ -90,7 +90,7 @@ angular.module('kitchenApp.services', [])
         fbSeating.child(table).child(seat.seatNumber).set({ taken: true, name: userName, avatar: avatar });
 
         //calls above function
-        startOrJoinVideo(seat, table, $scope);
+        startOrJoinVideo(seat, table, $scope); 
 
       }else{
 

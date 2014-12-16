@@ -46,11 +46,6 @@ a {
     background-color: #ff8000;
 }
 
-.avatar {
-  border: 1px solid black;
-  margin-top: 5px;
-}
-
 /* Video Streams */
 video.thumbCommon{
   max-width: 567px;
@@ -60,8 +55,10 @@ video.thumbCommon{
   left: 0 !important;
 }
 
-li.avatar {
-  padding-top: 5px;
+nav li span.username {
+  padding: 15px;
+  display: inline-block;
+  line-height: 20px;
 }
 
 /* Really bad hack to hide 5th and 6th seat at table */
@@ -79,6 +76,8 @@ li.avatar {
 
 .seat button {
   margin-bottom: 10px;
+  min-height: 112px;
+  padding: 0;
 }
 
 

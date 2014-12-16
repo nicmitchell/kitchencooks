@@ -40,7 +40,7 @@
           </div>
 
           <div class="inner cover">
-            <h1 class="cover-heading">The Kitchen</h1>
+            <h1 class="cover-heading">The Kitchen 2.0</h1>
             <p class="lead">Socialize with other remote student during your breaks.</p>
             <p class="lead">
               <a href="/auth/github" class="btn btn-lg btn-default">Log In with Github <span class="sr-only">(current)</span></a>

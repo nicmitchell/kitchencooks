@@ -8,7 +8,7 @@
     <meta name="description" content="Kitchen App">
     <meta name="author" content="Hack Reactor">
 
-    <title>Cover Template for Bootstrap</title>
+    <title>{title}</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">

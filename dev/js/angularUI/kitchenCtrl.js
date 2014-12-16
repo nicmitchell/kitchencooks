@@ -12,6 +12,14 @@ appControllers.controller('kitchenCtrl', ['$scope', '$cookies', '$firebase', 'Ta
   function ($scope, $cookies, $firebase, TableHelpers) {
 
     var user  = {};
+    var ref = new Firebase('https://hrr-kitchen-legacy.firebaseio.com/seating');
+    var sync = $firebase(ref);
+
+    // if ref points to a data collection
+    $scope.seats = sync.$asArray();
+    $scope.seatsObj = sync.$asObject();
+    console.log('seats', $scope.seats);
+
     if ($cookies.user) {
       window.userName = $cookies.user;
     } else {
@@ -31,16 +39,10 @@ appControllers.controller('kitchenCtrl', ['$scope', '$cookies', '$firebase', 'Ta
       // $scope.seats = seating;
     };
 
-    $scope.doClick = function(seat, $event) {
-      $scope.handleClick(seat, $event, $scope);
+    $scope.doClick = function(seat, table, $event) {
+      $scope.handleClick(seat, table, $event, $scope);
     };
 
-    var ref = new Firebase('https://hrr-kitchen-legacy.firebaseio.com/seating');
-    var sync = $firebase(ref);
-
-    // if ref points to a data collection
-    $scope.seats = sync.$asArray();
-    console.log('seats', $scope.seats);
   }]
 
 );

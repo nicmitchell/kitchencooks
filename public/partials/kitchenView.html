@@ -8,7 +8,7 @@
 
 <!-- thumbnail videos view -->
 <div class="col-md-12">
-  <div class="boxCommon panel">
+  <div class="boxCommon panel" ng-show="seated">
       <video id="box0" class="col-md-6 boxCommon thumbCommon easyRTCMirror" muted="muted" volume="0" controls></video>
       <video id="box1" class="col-md-6 boxCommon thumbCommon" volume="0.5" controls></video>
       <video id="box2" class="col-md-6 boxCommon thumbCommon" volume="0.5" controls></video>
@@ -49,7 +49,7 @@
             <th ng-click="viewThumbs('table1')">Table 1</th>
           </tr>
         </thead>
-        <tbody>      
+        <tbody>
           <tr>
             <td>
               <button ng-show="seats.table1.seat1.name === 'empty' " type="button" ng-click="doClick(seats.table1.seat1, $event)" class="btn btn-default seat btn-lg btn-block">

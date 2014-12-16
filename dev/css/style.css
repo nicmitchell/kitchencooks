@@ -1,8 +1,7 @@
 /* from style.css */
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  margin: 0;
+  margin: 0px;
 }
 
 a {
@@ -47,11 +46,6 @@ a {
     background-color: #ff8000;
 }
 
-.avatar {
-  border: 1px solid black;
-  margin-top: 5px;
-}
-
 /* Video Streams */
 video.thumbCommon{
   max-width: 567px;
@@ -61,14 +55,31 @@ video.thumbCommon{
   left: 0 !important;
 }
 
-/*#killButton {
-    opacity:0.7;
+nav li span.username {
+  padding: 15px;
+  display: inline-block;
+  line-height: 20px;
 }
 
-#killButton:hover {
-    opacity:1.0;
+/* Really bad hack to hide 5th and 6th seat at table */
+.well.col-sm-4 .seat:nth-of-type(5), .well.col-sm-4 .seat:nth-of-type(6) {
+    display: none;
 }
-*/
+
+.select-tablecloth.col-sm-12 {
+    margin-bottom: 10px;
+}
+
+.seat {
+  margin-bottom: 30px;
+}
+
+.seat button {
+  margin-bottom: 10px;
+  min-height: 112px;
+  padding: 0;
+}
+
 
 /*
 .bootbox {

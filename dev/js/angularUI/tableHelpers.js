@@ -1,40 +1,41 @@
 angular.module('kitchenApp.services', [])
 
-.factory('TableHelpers', function(){
-  var startOrJoinVideo = function(seat, $scope){
+.factory('TableHelpers', function($firebase){
+  var startOrJoinVideo = function(seat, table, $scope){
 
     // var table = $scope.hangouts[seat.tableNumber];
-    var table = $scope.seats[seat.tableNumber];
+    // var table = $scope.seats[seat.tableNumber];
 
-    console.log('scope.seats',$scope.seats[seat.tableNumber]);
+    console.log('scope.seats',$scope.seats);
 
     //This funcitons is in videoConderence/videoFaces.js
-    //It will generate a
-    joinThumbVideos(seat.tableNumber);
+    //It will generate a room based on the table number
+    joinThumbVideos(table);
 
-    if (table.users === 0){
+    // I don't think this is being used any more without appear.in
+    // if (table.users === 0){
 
-      table.users++;
+    //   table.users++;
 
-      //modal alert box
-      bootbox.alert("Creating a video group chat! Allow the kitchen app to access your camera.");
-      $(".modal-backdrop").css("z-index", "0");
+    //   //modal alert box
+    //   bootbox.alert("Creating a video group chat! Allow the kitchen app to access your camera.");
+    //   $(".modal-backdrop").css("z-index", "0");
 
-      //updates model and view with the new seating arrangment
-      // $scope.$apply(function(){
-        console.log('SEAT', seat, table);
-        $scope.currentURL = table.url;
-        $scope.currentSeat = seat.tableNumber + ' - ' + seat.seatNumber;
-      // });
+    //   //updates model and view with the new seating arrangment
+    //   // $scope.$apply(function(){
+    //     console.log('SEAT', seat, table);
+    //     $scope.currentURL = table.url;
+    //     $scope.currentSeat = seat.tableNumber + ' - ' + seat.seatNumber;
+    //   // });
 
-      //call function to start video and store link to it here
-      //should probably be changed so that it is called when "OK" is clicked on the bootbox modal
-      // window.open('https://appear.in/hrr-kitchen-'+ seat.tableNumber);
+    //   //call function to start video and store link to it here
+    //   //should probably be changed so that it is called when "OK" is clicked on the bootbox modal
+    //   // window.open('https://appear.in/hrr-kitchen-'+ seat.tableNumber);
 
-      //updates the firebase
-      fbHangouts.set($scope.hangouts);
+    //   //updates the firebase
+    //   // fbHangouts.set($scope.hangouts);
 
-    }else{
+    // }else{
 
       // window.open('https://appear.in/hrr-kitchen-'+ seat.tableNumber);
 
@@ -44,36 +45,52 @@ angular.module('kitchenApp.services', [])
 
       //updates model and view with the new seating arrangment
       // $scope.$apply(function(){
-        $scope.currentURL = table.url;
-        $scope.currentSeat = seat.tableNumber + ' - ' + seat.seatNumber;
+        // $scope.currentURL = table.url;
+        // $scope.currentSeat = seat.tableNumber + ' - ' + seat.seatNumber;
       // });
 
-      fbHangouts.set($scope.hangouts);
+      // fbHangouts.set($scope.hangouts);
 
-    }
+    // }
 
   };
 
   //This functions decides the outcome when a user clicks on a seat
-  var handleClick = function(seat, $event, $scope) {
-    if($event){
-        $event.preventDefault();
-    }
+  var handleClick = function(seat, table, $event, $scope) {
+    // if($event){
+    //     $event.preventDefault();
+    // }
+    // var seats = $scope.seats.$asObject();
+    // console.log('seats on click', $scope.seats[0]);
+    // console.log('seats on click', seats);
+    
+    var ref = new Firebase('https://hrr-kitchen-legacy.firebaseio.com/seating');
+    var sync = $firebase(ref);
+
+    // if ref points to a data collection
+    // table = table.slice(-1);
+    console.log('seats on click', $scope.seatsObj);
+    console.log('table', table);
+    // console.log('seats', $scope.seats.table);
+
+    seat = $scope.seatsObj[table][seat];
+
     if (!$scope || !$scope.satDown){
 
       if (seat && !seat.taken){
+        console.log('seat', seat);
 
         $scope.currentSeat = seat.seatNumber;
 
-        seat.name = userName;
-        seat.avatar = avatar || '';
-        seat.taken = true;
+        // seat.name = userName;
+        // seat.avatar = avatar || '';
+        // seat.taken = true;
         $scope.satDown = true;
 
-        fbSeating.set($scope.seats);
+        fbSeating.child(table).child(seat.seatNumber).set({ taken: true, name: userName, avatar: avatar });
 
         //calls above function
-        startOrJoinVideo(seat, $scope);
+        startOrJoinVideo(seat, table, $scope);
 
       }else{
 
@@ -318,15 +335,43 @@ angular.module('kitchenApp.services', [])
     };
 
     fbHangouts.set(hangouts);
-    fbSeating.set(seating, function($scope){
+    return fbSeating.set(seating, function($scope){
       console.log('room cleared');
+      return seating;
     });
-    return seating;
   };
 
   return {
     startOrJoinVideo: startOrJoinVideo,
     handleClick: handleClick,
     clearRoom: clearRoom
+  };
+})
+.factory('topicsStorage', function(){
+  var fbTopics = new Firebase('https://hrr-kitchen-legacy.firebaseio.com/topics');
+
+  // create an AngularFire reference to the data
+  // var sync = $firebase(ref);
+
+ // download the data into a local object
+  // $scope.data = sync.$asObject();
+
+  var topics = [
+    {text: "Why hack reactor?"},
+    {text: "What is your favourate framework?"}
+    ];
+
+  return {
+    getTopics: function(){
+      fbTopics.on('child_added', function(snapshot) {
+        var topic = snapshot.val();
+        topics.push(topic);
+      });
+      return topics;
+    },
+    addTopics: function(topic){
+      fbTopics.push({text: topic});
+      // topics.push(topic);
+    }
   };
 });

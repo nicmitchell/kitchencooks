@@ -3,15 +3,23 @@ window.userName = 'Loading';
 // var fbHangouts = new Firebase('https://hrr-kitchen-legacy.firebaseio.com/hangouts');
 // if so then provide the user with the hangout url
 
-var appControllers = angular.module('appControllers', ['ngCookies']);
+var appControllers = angular.module('appControllers', ['ngCookies', 'firebase']);
 
 
 //this controller handles the kitchen view and designates which seats are available
 //It uses functions stored in tableHelpers.js
-appControllers.controller('kitchenCtrl', ['$scope', '$cookies', 'TableHelpers',
-  function ($scope, $cookies, TableHelpers) {
+appControllers.controller('kitchenCtrl', ['$scope', '$cookies', '$firebase', 'TableHelpers',
+  function ($scope, $cookies, $firebase, TableHelpers) {
 
     var user  = {};
+    var ref = new Firebase('https://hrr-kitchen-legacy.firebaseio.com/seating');
+    var sync = $firebase(ref);
+
+    // if ref points to a data collection
+    $scope.seats = sync.$asArray();
+    $scope.seatsObj = sync.$asObject();
+    console.log('seats', $scope.seats);
+
     if ($cookies.user) {
       window.userName = $cookies.user;
     } else {
@@ -20,52 +28,21 @@ appControllers.controller('kitchenCtrl', ['$scope', '$cookies', 'TableHelpers',
 
     $scope.satDown = false;
     $scope.currentSeat = "standing";
-    $scope.currentURL = "No current hangout url";
-
-    console.log('fbseating', fbSeating);
-
-    $scope.seats = {};
     $scope.hangouts = {};
+    $scope.example = [1,2,3,4,5];
 
     // Services
     $scope.handleClick = TableHelpers.handleClick;
     $scope.clearRoom = function(){
-      var seating = TableHelpers.clearRoom();
-      console.log('seating from callback', seating);
-      $scope.seats = seating;
-    };
-    // not in use
-    // $scope.viewThumbs = viewThumbVideos;
-
-    $scope.doClick = function(seat, $event) {
-      $scope.handleClick(seat, $event, $scope);
+      $scope.seats = TableHelpers.clearRoom();
+      // console.log('seating from callback', seating);
+      // $scope.seats = seating;
     };
 
-    // Gets the inital values from Firebase and updates the local seating data
-    fbSeating.once("value", function(snapshot) {
-      $scope.$apply(function(){
-        $scope.seats = snapshot.val();
-        console.log('fbSeating on value', $scope.seats);
-        fbSeating.set($scope.seats);
-      });
-    });
-
-
-
-    // //Updates the hangout urls- currently not used as the app now uses appear.in instead of google hangouts
-    // fbHangouts.on("value", function(snapshot) {
-
-    //   // $scope.$apply(function(){
-    //     $scope.hangouts = snapshot.val();
-    //   // });
-
-    // });
-
-    
-
-    
+    $scope.doClick = function(seat, table, $event) {
+      $scope.handleClick(seat, table, $event, $scope);
+    };
 
   }]
 
 );
-

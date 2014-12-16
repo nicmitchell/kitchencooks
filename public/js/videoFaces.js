@@ -63,6 +63,7 @@ var boxUsed = [true, false, false, false];
 var connectCount = 0;
 
 function joinThumbVideos(table) {
+    console.log('join video table', table);
 
     easyrtc.joinRoom(table, null, null, null);
 

@@ -11,7 +11,8 @@ var kitchenApp = angular.module('kitchenApp', [
   'ui.bootstrap',
   'ngRoute',
   'appControllers',
-  'kitchenApp.services'
+  'kitchenApp.services',
+  'firebase'
   ],
   function($interpolateProvider) {
     $interpolateProvider.startSymbol('{%');

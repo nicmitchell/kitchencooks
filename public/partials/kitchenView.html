@@ -7,19 +7,40 @@
 
 
 <!-- thumbnail videos view -->
-  <div class = "container col-md-12">
-    <div class="boxCommon panel" ng-show="seated">
-        <video id="box0" class="col-md-6 boxCommon thumbCommon easyRTCMirror" muted="muted" volume="0" ></video>
-        <video id="box1" class="col-md-6 boxCommon thumbCommon" muted="muted" volume="0"></video>
-        <video id="box2" class="col-md-6 boxCommon thumbCommon" muted="muted" volume="0"></video>
-        <video id="box3" class="col-md-6 boxCommon thumbCommon" muted="muted" volume="0"></video>
+<div class="col-md-12">
+  <div class="boxCommon panel">
+      <video id="box0" class="col-md-6 boxCommon thumbCommon easyRTCMirror" muted="muted" volume="0" controls></video>
+      <video id="box1" class="col-md-6 boxCommon thumbCommon" volume="0.5" controls></video>
+      <video id="box2" class="col-md-6 boxCommon thumbCommon" volume="0.5" controls></video>
+      <video id="box3" class="col-md-6 boxCommon thumbCommon" volume="0.5" controls></video>
+  </div>
+</div>
+
+<!-- tables -->
+<div ng-repeat="table in seats" class="well text-center col-sm-4">
+  <h4 class="text-left" style="padding-left:16px">Table {% table.tableNumber %}</h4>
+  <div ng-style="tableCloth">
+    <div ng-repeat="seat in table" class="col-sm-6 seat {% seat.seatNumber %}">
+      <button type="button" ng-click="doClick(seat.seatNumber, seat.tableNumber, $event)" class="btn btn-default btn-lg btn-block">
+      <span ng-show="seat.name === 'empty' " class="glyphicon glyphicon-user" aria-hidden="true"></span>
+      <img ng-show="seat.name !== 'empty' " ng-src="{% seat.avatar %}&s=110" aria-hidden="true">
+      </button>
+      <span class="label label-default">{% seat.name %}</span>
     </div>
   </div>
+  <div class="select-tablecloth col-sm-12">
+    <span class="label label-primary" ng-click="chooseCloth('blue')">Blue</span>
+    <span class="label label-success" ng-click="chooseCloth('green')">Green</span>
+    <span class="label label-warning" ng-click="chooseCloth('orange')">Orange</span>
+    <span class="label label-danger" ng-click="chooseCloth('red')">Red</span>
+  </div>
+</div>
+
 
 
 <!-- This view file shows the kitchen and thumbs videos to the user -->
-
-<div class="text-center" onload="roomInit()">
+<!--
+<div class="well text-center">
   <div class="row">
     <div class="col-sm-4 well" ng-style="tableCloth">
       <table class="table">
@@ -28,10 +49,7 @@
             <th ng-click="viewThumbs('table1')">Table 1</th>
           </tr>
         </thead>
-        <tfoot>
-
-        </tfoot>
-        <tbody>
+        <tbody>      
           <tr>
             <td>
               <button ng-show="seats.table1.seat1.name === 'empty' " type="button" ng-click="doClick(seats.table1.seat1, $event)" class="btn btn-default seat btn-lg btn-block">
@@ -309,26 +327,14 @@
       </div>
     </div>
   </div>
+</div> -->
+
+
 </div>
   <button ng-click="clearRoom()" class="btn btn-danger seat">Clear Room</button>
 
 <!-- Kitchen tables and seats view -->
-<!--   <div class="panel panel-default container col-md-6" ng-controller="kitchenCtrl">
-      <div class="well well-sm urlbar">
-      <div>{% currentSeat %}</div>
-      <div>URL: {% currentURL %}</div>
-    </div>
-  </div> -->
 
-<!-- thumbnail videos view -->
-<!--   <div class = "container col-md-6">
-    <div class="boxCommon panel">
-        <video id="box0" class="col-md-6 boxCommon thumbCommon easyRTCMirror" muted="muted" volume="0" ></video>
-        <video id="box1" class="col-md-6 boxCommon thumbCommon" muted="muted" volume="0"></video>
-        <video id="box2" class="col-md-6 boxCommon thumbCommon" muted="muted" volume="0"></video>
-        <video id="box3" class="col-md-6 boxCommon thumbCommon" muted="muted" volume="0"></video>
-    </div>
-  </div> -->
 
 
 

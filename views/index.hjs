@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html ng-app="kitchenApp">
-  <head >
+  <head>
     <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
     <title>{{ title }}</title>
 
@@ -18,12 +18,12 @@
     <script src="/socket.io/socket.io.js"></script>
     <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.12.0.js"></script>
     <script src = "bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="https://cdn.firebase.com/libs/angularfire/0.9.0/angularfire.min.js"></script>
 
     <!-- easyrtc (below) installed in a hacky way -->
     <script src="js/easyrtc.js"></script>
     <script src="js/videoFaces.js"></script>
     <script src="js/bootbox.js"></script>
-    <!-- <script src="js/demo_multiparty.js"></script> -->
     <!-- load main application file -->
     <script src="/js/app.min.js"></script>
     <script>
@@ -50,7 +50,10 @@
               <li><a href="/#/admin">Add Topic</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-              <li><img class="avatar" src="{{user._json.avatar_url}}&s=40" alt=""> {{ user.displayName }}</li>
+              <li>
+                <img class="avatar" src="{{user._json.avatar_url}}&s=40" alt="">
+                <span class="username">{{ user.displayName }}</span>
+              </li>
               <li><a href="/logout">Log Out</a></li>
             </ul>
           </div><!--/.nav-collapse -->

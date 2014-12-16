@@ -63,11 +63,12 @@ var boxUsed = [true, false, false, false];
 var connectCount = 0;
 
 function joinThumbVideos(table) {
+    console.log('join video table', table);
 
     easyrtc.joinRoom(table, null, null, null);
 
 
-    easyrtc.enableAudio(false);
+    easyrtc.enableAudio(true);
 
     easyrtc.setRoomOccupantListener(callEverybodyElse);
     easyrtc.easyApp("easyrtc.multiparty", "box0", ["box1", "box2", "box3"], loginSuccess); //sets up multiparty video links

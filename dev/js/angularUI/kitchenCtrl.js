@@ -1,6 +1,6 @@
 window.userName = 'Loading';
 
-// var fbHangouts = new Firebase('https://hrr-kitchen-legacy.firebaseio.com/hangouts');
+// var fbHangouts = new Firebase('https://hrr-kitchen-cooks.firebaseio.com/hangouts');
 // if so then provide the user with the hangout url
 
 var appControllers = angular.module('appControllers', ['ngCookies', 'firebase']);
@@ -12,7 +12,7 @@ appControllers.controller('kitchenCtrl', ['$scope', '$cookies', '$firebase', 'Ta
   function ($scope, $cookies, $firebase, TableHelpers) {
 
     var user  = {};
-    var ref = new Firebase('https://hrr-kitchen-legacy.firebaseio.com/seating');
+    var ref = new Firebase('https://hrr-kitchen-cooks.firebaseio.com/seating');
     var sync = $firebase(ref);
 
     // if ref points to a data collection

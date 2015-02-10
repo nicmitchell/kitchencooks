@@ -1,9 +1,9 @@
-var fb = new Firebase('https://hrr-kitchen-legacy.firebaseio.com/');
-var fbSeating = new Firebase('https://hrr-kitchen-legacy.firebaseio.com/seating');
-var fbChats = new Firebase('https://hrr-kitchen-legacy.firebaseio.com/chats');
-var fbHangouts = new Firebase('https://hrr-kitchen-legacy.firebaseio.com/hangouts');
+var fb = new Firebase('https://hrr-kitchen-cooks.firebaseio.com/');
+var fbSeating = new Firebase('https://hrr-kitchen-cooks.firebaseio.com/seating');
+var fbChats = new Firebase('https://hrr-kitchen-cooks.firebaseio.com/chats');
+var fbHangouts = new Firebase('https://hrr-kitchen-cooks.firebaseio.com/hangouts');
 
-// var fbSeating = new Firebase('https://hrr-kitchen-legacy.firebaseio.com/seating');
+// var fbSeating = new Firebase('https://hrr-kitchen-cooks.firebaseio.com/seating');
 
 /* App Module */
 

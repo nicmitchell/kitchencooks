@@ -65,7 +65,7 @@ angular.module('kitchenApp.services', [])
     // console.log('seats on click', $scope.seats[0]);
     // console.log('seats on click', seats);
     
-    var ref = new Firebase('https://hrr-kitchen-legacy.firebaseio.com/seating');
+    var ref = new Firebase('https://hrr-kitchen-cooks.firebaseio.com/seating');
     var sync = $firebase(ref);
 
     // if ref points to a data collection
@@ -349,7 +349,7 @@ angular.module('kitchenApp.services', [])
   };
 })
 .factory('topicsStorage', function(){
-  var fbTopics = new Firebase('https://hrr-kitchen-legacy.firebaseio.com/topics');
+  var fbTopics = new Firebase('https://hrr-kitchen-cooks.firebaseio.com/topics');
 
   // create an AngularFire reference to the data
   // var sync = $firebase(ref);

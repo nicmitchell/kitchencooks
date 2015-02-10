@@ -18,7 +18,7 @@
 
 <!-- tables -->
 <div ng-repeat="table in seats" class="well text-center col-sm-4">
-  <h4 class="text-left" style="padding-left:16px">Table {% table.tableNumber %}</h4>
+  <h4 class="text-left" style="padding-left:16px">{% table.tableNumber %}</h4>
   <div ng-style="tableCloth">
     <div ng-repeat="seat in table" class="col-sm-6 seat {% seat.seatNumber %}">
       <button type="button" ng-click="doClick(seat.seatNumber, table.tableNumber, $event)" class="btn btn-default btn-lg btn-block">

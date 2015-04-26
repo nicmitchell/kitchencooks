@@ -350,6 +350,7 @@ angular.module('kitchenApp.services', [])
 })
 .factory('topicsStorage', function(){
   var fbTopics = new Firebase('https://hrr-kitchen-cooks.firebaseio.com/topics');
+  var fbTopic = new Firebase('https://hrr-kitchen-cooks.firebaseio.com/topic');
 
   // create an AngularFire reference to the data
   // var sync = $firebase(ref);
@@ -358,9 +359,9 @@ angular.module('kitchenApp.services', [])
   // $scope.data = sync.$asObject();
 
   var topics = [
-    {text: "Why do you have CoffeeScript?"},
-    {text: "What is your favorite framework?"}
-    ];
+    {text: "Why do you hate CoffeeScript?"},
+    {text: "Why do you love Angular?"}
+  ];
 
   return {
     getTopics: function(){
@@ -373,6 +374,18 @@ angular.module('kitchenApp.services', [])
     addTopics: function(topic){
       fbTopics.push({text: topic});
       // topics.push(topic);
+    },
+    setTopic: function(topic){
+      console.log('set topic', topic);
+      fbTopic.set({topic: topic});
+    },
+    topic: function(){
+      var currentTopic = '';
+      return fbTopic.on('value', function(snapshot){
+        currentTopic = snapshot.val() ? snapshot.val().topic : "Why is the mascot for Ember an ugly hamster?";
+        console.log('topic',currentTopic);
+        return currentTopic;
+      });
     }
   };
 });

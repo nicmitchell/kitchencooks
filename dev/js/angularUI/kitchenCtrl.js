@@ -11,9 +11,14 @@ var appControllers = angular.module('appControllers', ['ngCookies', 'firebase'])
 appControllers.controller('kitchenCtrl', ['$scope', '$cookies', '$firebase', 'TableHelpers',
   function ($scope, $cookies, $firebase, TableHelpers) {
 
+    var topicRef = new Firebase('https://hrr-kitchen-cooks.firebaseio.com/topic');
+    var topicSync = $firebase(topicRef);
+    $scope.currentTopic = topicSync.$asObject();
+
     var user  = {};
     var ref = new Firebase('https://hrr-kitchen-cooks.firebaseio.com/seating');
     var sync = $firebase(ref);
+
 
     // if ref points to a data collection
     $scope.seats = sync.$asArray();
@@ -41,6 +46,11 @@ appControllers.controller('kitchenCtrl', ['$scope', '$cookies', '$firebase', 'Ta
 
     $scope.doClick = function(seat, table, $event) {
       $scope.handleClick(seat, table, $event, $scope);
+    };
+
+    $scope.chooseCloth = function(color){
+      // console.log('this', this.$parent);
+      // debugger;
     };
 
   }]

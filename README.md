@@ -8,24 +8,17 @@
 
   - __Development Team Members__: [Victor Leung](https://github.com/victorleungtw), [Patrick McPike](https://github.com/mcpike), [Nic Mitchell](https://github.com/nicmitchell), [Rory Campbell](https://github.com/roryc89), [Julie Knowles](https://github.com/JulieMarie), [Pat Lauer](https://github.com/plauer) 
 
-
-## Table of Contents
-
-1. [Usage](#Usage)
-1. [Requirements](#requirements)
-1. [Contributing](#contributing)
-
 ## Usage
 
 1. Login using GitHub credentials
 1. Seats show GitHub avatar of the occupant
 1. Pick a seat that doesn't already have an avatar and click on it
 
-## Requirements
+## Getting Started
 
-- Node 0.10.x
+**Requires:** Node 0.10.x
 
-Within the root directory, run:
+**Within the root directory, run:**
 
     npm install
     bower install

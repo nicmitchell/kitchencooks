@@ -4,15 +4,6 @@ Chat face to face using a WebRTC video chat built with Angular, Node, Firebase, 
 
 **Demo:** https://radiant-waters-3029.herokuapp.com
 
-## Contributors
-
-- [Victor Leung](https://github.com/victorleungtw)
-- [Patrick McPike](https://github.com/mcpike)
-- [Nic Mitchell](https://github.com/nicmitchell)
-- [Rory Campbell](https://github.com/roryc89)
-- [Julie Knowles](https://github.com/JulieMarie)
-- [Pat Lauer](https://github.com/plauer) 
-
 ## Usage
 
 1. Login using GitHub credentials
@@ -30,6 +21,15 @@ Chat face to face using a WebRTC video chat built with Angular, Node, Firebase, 
     grunt
     nodemon
 
+
+## Contributors
+
+- [Nic Mitchell](https://github.com/nicmitchell)
+- [Victor Leung](https://github.com/victorleungtw)
+- [Patrick McPike](https://github.com/mcpike)
+- [Rory Campbell](https://github.com/roryc89)
+- [Julie Knowles](https://github.com/JulieMarie)
+- [Pat Lauer](https://github.com/plauer) 
 
 ## Contributing
 

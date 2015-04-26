@@ -1,8 +1,8 @@
-# Project Name
+# The Kitchen
+======
+Chat face to face with using a WebRTC video chat built with Angular, Node, and Firebase. Students sit around 6 tables with 4 students at each table to give remote students the opportunity to engage each other in a small social environment.
 
-> HRR Meet Me in the Kitchen App
-
-> Demo: https://radiant-waters-3029.herokuapp.com
+**Demo:** https://radiant-waters-3029.herokuapp.com
 
 ## Contributors
 

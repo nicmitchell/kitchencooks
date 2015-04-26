@@ -48,9 +48,10 @@ appControllers.controller('kitchenCtrl', ['$scope', '$cookies', '$firebase', 'Ta
       $scope.handleClick(seat, table, $event, $scope);
     };
 
-    $scope.chooseCloth = function(color){
-      // console.log('this', this.$parent);
-      // debugger;
+    $scope.chooseCloth = function(color, tableNumber){
+      console.log('this', this.$parent);
+      console.log('table num', tableNumber);
+      debugger;
     };
 
   }]

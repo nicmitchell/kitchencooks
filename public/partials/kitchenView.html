@@ -28,10 +28,10 @@
       <span class="label label-default">{% seat.name %}</span>
     </div>
   </div>
-  <div class="select-tablecloth col-sm-12">
-    <span class="label label-primary" ng-click="chooseCloth('blue')">Blue</span>
-    <span class="label label-success" ng-click="chooseCloth('green')">Green</span>
-    <span class="label label-warning" ng-click="chooseCloth('orange')">Orange</span>
-    <span class="label label-danger" ng-click="chooseCloth('red')">Red</span>
+  <div class="select-tablecloth col-sm-12" style="display: none">
+    <span class="label label-primary" ng-click="chooseCloth('blue, table.tableNumber')">Blue</span>
+    <span class="label label-success" ng-click="chooseCloth('green, table.tableNumber')">Green</span>
+    <span class="label label-warning" ng-click="chooseCloth('orange, table.tableNumber')">Orange</span>
+    <span class="label label-danger" ng-click="chooseCloth('red, table.tableNumber')">Red</span>
   </div>
 </div>

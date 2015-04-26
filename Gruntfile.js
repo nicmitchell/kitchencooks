@@ -12,8 +12,12 @@ module.exports = function(grunt){
     pkg: grunt.file.readJSON('package.json'),
     concat: {
       js: {
-        src: ['dev/js/angularUI/main.js', 'dev/js/angularUI/kitchenCtrl.js',
-             'dev/js/angularUI/tableHelpers.js'],
+        src: [
+          'dev/js/angularUI/main.js', 
+          'dev/js/angularUI/kitchenCtrl.js', 
+          'dev/js/angularUI/adminCtrl.js',
+          'dev/js/angularUI/tableHelpers.js'
+        ],
         dest: 'public/js/app.min.js'
       },
       video: {

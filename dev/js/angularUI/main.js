@@ -26,6 +26,10 @@ var kitchenApp = angular.module('kitchenApp', [
         templateUrl: '/partials/kitchenView.html',
         controller: 'kitchenCtrl'
       }).
+      when('/admin', {
+        templateUrl: '/partials/adminView.html',
+        controller: 'adminCtrl'
+      }).
       otherwise({
         redirectTo: '/index'
       });

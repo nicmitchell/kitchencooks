@@ -1,6 +1,6 @@
 # The Kitchen
-======
-Chat face to face with using a WebRTC video chat built with Angular, Node, and Firebase. Students sit around 6 tables with 4 students at each table to give remote students the opportunity to engage each other in a small social environment.
+
+Chat face to face using a WebRTC video chat built with Angular, Node, Firebase, and EasyRTC. Students sit around 6 tables with 4 students at each table to give remote students the opportunity to engage each other in a small social environment.
 
 **Demo:** https://radiant-waters-3029.herokuapp.com
 

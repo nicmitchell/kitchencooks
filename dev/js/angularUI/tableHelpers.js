@@ -358,8 +358,8 @@ angular.module('kitchenApp.services', [])
   // $scope.data = sync.$asObject();
 
   var topics = [
-    {text: "Why hack reactor?"},
-    {text: "What is your favourate framework?"}
+    {text: "Why do you have CoffeeScript?"},
+    {text: "What is your favorite framework?"}
     ];
 
   return {

@@ -1,6 +1,7 @@
 # Project Name
 
 > HRR Meet Me in the Kitchen App
+> Demo: https://radiant-waters-3029.herokuapp.com
 
 ## Team
 
@@ -38,12 +39,7 @@ From within the root directory:
     npm install
     bower install
     grunt
-    npm start
-
-
-### Roadmap
-
-View the project roadmap/issues [here](https://waffle.io/kitchencooks/kitchencooks "KitchenCooks Roadmap/Issues")
+    nodemon
 
 
 ## Contributing
